@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Tarun Kumar - AI/ML Engineer">
+    <title>Contact - Tarun Kumar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="profiles.html" class="nav-link">Profiles</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+                    <li><a href="certificates.html" class="nav-link">Certificates</a></li>
+                    <li><a href="skills.html" class="nav-link">Skills</a></li>
+                    <li><a href="milestones.html" class="nav-link">Milestones</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Get In Touch</h1>
+                    <p class="page-subtitle">Let's discuss your next AI/ML project and bring your ideas to life</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-section">
+                        <h2>Send Me a Message</h2>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <div class="form-error" id="name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="form-error" id="email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="Project Inquiry, Collaboration, etc.">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project, requirements, or any questions you have..."></textarea>
+                                <div class="form-error" id="message-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                        <div class="form-success" id="form-success">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Thank you for your message! I'll get back to you within 24 hours.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="contact-info-section">
+                        <div class="contact-info">
+                            <h2>Contact Information</h2>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Email</h3>
+                                        <a href="mailto:imtarunchaudharyy@gmail.com">imtarunchaudharyy@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Phone</h3>
+                                        <a href="tel:+919027806285">+91-9027806285</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Location</h3>
+                                        <span>Mathura, India</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Response Time</h3>
+                                        <span>Within 24 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-links">
+                                <h3>Connect With Me</h3>
+                                <div class="social-buttons">
+                                    <a href="https://linkedin.com/in/iamtarunchaudhary" target="_blank" class="social-btn linkedin">
+                                        <i class="fab fa-linkedin"></i>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a href="https://github.com/chaudharytarunkumar" target="_blank" class="social-btn github">
+                                        <i class="fab fa-github"></i>
+                                        <span>GitHub</span>
+                                    </a>
+                                    <a href="mailto:imtarunchaudharyy@gmail.com" class="social-btn email">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Email</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="availability">
+                                <h3>Current Availability</h3>
+                                <div class="availability-status">
+                                    <div class="status-indicator available"></div>
+                                    <span>Available for new projects</span>
+                                </div>
+                                <p>Open to freelance work, consulting, and full-time opportunities in AI/ML development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Map -->
+        <section class="location-map">
+            <div class="container">
+                <h2 class="section-title">My Location</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224359.7553060654!2d77.30429384843751!3d27.49670485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39740d262a9a8b47%3A0x8c86a7d53e5ba68e!2sMathura%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1706708800000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay">
+                        <div class="location-info">
+                            <h3>Mathura, India</h3>
+                            <p>Open to remote work and relocation opportunities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What types of AI/ML projects do you work on?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I specialize in chatbot development, natural language processing, document processing systems, emotion detection, and conversational AI. I also work on web development projects with AI integration.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What's your typical project timeline?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Project timelines vary based on complexity. Simple chatbots can be completed in 1-2 weeks, while complex AI systems may take 4-8 weeks. I always provide detailed project timelines during the initial consultation.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you work with teams or solo clients?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I work with both individual clients and teams. I have experience collaborating in agile environments and can adapt to your team's workflow and communication preferences.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What technologies do you use?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>I primarily work with Python, TensorFlow, HuggingFace, OpenAI API, Flask, and various NLP libraries. For web development, I use HTML, CSS, JavaScript, and modern frameworks as needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hire Me CTA -->
+        <section class="hire-cta">
+            <div class="container">
+                <div class="hire-cta-content">
+                    <div class="hire-text">
+                        <h2>Ready to Start Your AI Project?</h2>
+                        <p>Let's discuss your requirements and bring your AI/ML ideas to life with cutting-edge solutions.</p>
+                    </div>
+                    <div class="hire-action">
+                        <button class="btn btn-primary btn-large" onclick="openHireModal()">
+                            <i class="fas fa-rocket"></i>
+                            Hire Me Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hire Me Modal -->
+    <div class="modal" id="hire-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Let's Work Together!</h3>
+                <button class="modal-close" onclick="closeHireModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="hire-avatar">
+                    <div class="avatar-animation">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <p>Ready to bring AI/ML solutions to your project? Let's discuss how I can help you build intelligent systems that drive results.</p>
+                <div class="hire-actions">
+                    <a href="mailto:imtarunchaudharyy@gmail.com?subject=Hiring Inquiry - AI/ML Project&body=Hi Tarun,%0D%0A%0D%0AI'm interested in discussing a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A-%0D%0A-%0D%0A%0D%0ABest regards," class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-form"></i>
+                        Contact Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Tarun Kumar. All rights reserved.</p>
+                    <p>AI/ML Engineer | Mathura, India</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:imtarunchaudharyy@gmail.com">imtarunchaudharyy@gmail.com</a>
+                    <span>|</span>
+                    <a href="tel:+919027806285">+91-9027806285</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

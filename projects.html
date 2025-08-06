@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Tarun Kumar - AI/ML Engineer">
+    <title>Projects - Tarun Kumar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="profiles.html" class="nav-link">Profiles</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+                    <li><a href="certificates.html" class="nav-link">Certificates</a></li>
+                    <li><a href="skills.html" class="nav-link">Skills</a></li>
+                    <li><a href="milestones.html" class="nav-link">Milestones</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">My Projects</h1>
+                    <p class="page-subtitle">Innovative AI/ML solutions that solve real-world problems</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Filters -->
+        <section class="project-filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+                    <button class="filter-btn" data-filter="chatbot">Chatbots</button>
+                    <button class="filter-btn" data-filter="nlp">NLP</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid">
+            <div class="container">
+                <div class="projects-container">
+                    <!-- PDFGenie Chatbot -->
+                    <div class="project-card" data-category="ai-ml chatbot nlp">
+                        <div class="project-image">
+                            <div class="project-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">OpenAI</span>
+                                    <span class="tech-tag">PyPDF2</span>
+                                    <span class="tech-tag">TTS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">PDFGenie Chatbot</h3>
+                                <div class="project-date">January 2025</div>
+                            </div>
+                            <p class="project-description">
+                                AI-powered PDF assistant that summarizes documents, enables interactive chat, and converts text to speech. 
+                                Integrated with OpenAI API for intelligent document processing and comprehension.
+                            </p>
+                            <div class="project-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> PDF text extraction and processing</li>
+                                    <li><i class="fas fa-check"></i> Intelligent document summarization</li>
+                                    <li><i class="fas fa-check"></i> Interactive chat interface</li>
+                                    <li><i class="fas fa-check"></i> Text-to-speech conversion</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/chaudharytarunkumar/PDFGenie.git" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                                <button class="btn btn-secondary" onclick="openProjectDemo('pdfgenie')">
+                                    <i class="fas fa-play"></i>
+                                    Live Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MyTherapist Chatbot -->
+                    <div class="project-card" data-category="ai-ml chatbot nlp">
+                        <div class="project-image">
+                            <div class="project-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">HuggingFace</span>
+                                    <span class="tech-tag">Streamlit</span>
+                                    <span class="tech-tag">NLP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">MyTherapist Chatbot</h3>
+                                <div class="project-date">December 2024</div>
+                            </div>
+                            <p class="project-description">
+                                AI mental health chatbot with emotion detection capabilities using HuggingFace transformers and TextBlob. 
+                                Provides supportive conversations and motivational content for mental wellness.
+                            </p>
+                            <div class="project-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Emotion detection and analysis</li>
+                                    <li><i class="fas fa-check"></i> Supportive conversation interface</li>
+                                    <li><i class="fas fa-check"></i> Motivational quote generation</li>
+                                    <li><i class="fas fa-check"></i> Web deployment via ngrok</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/chaudharytarunkumar/MyTherapist-Chatbot.git" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                                <button class="btn btn-secondary" onclick="openProjectDemo('mytherapist')">
+                                    <i class="fas fa-play"></i>
+                                    Live Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Project Placeholder -->
+                    <div class="project-card coming-soon" data-category="ai-ml">
+                        <div class="project-image">
+                            <div class="project-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="coming-soon-overlay">
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Next AI Project</h3>
+                                <div class="project-date">In Development</div>
+                            </div>
+                            <p class="project-description">
+                                Currently working on an exciting new AI/ML project that will showcase advanced machine learning capabilities. 
+                                Stay tuned for updates!
+                            </p>
+                            <div class="project-actions">
+                                <button class="btn btn-secondary" disabled>
+                                    <i class="fas fa-clock"></i>
+                                    Coming Soon
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Demo Modal -->
+        <div class="modal project-modal" id="project-modal">
+            <div class="modal-content project-modal-content">
+                <div class="modal-header">
+                    <h3 id="demo-title">Project Demo</h3>
+                    <button class="modal-close" onclick="closeProjectDemo()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="demo-container">
+                        <div class="demo-placeholder" id="demo-content">
+                            <div class="demo-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <p>Demo will be available once the project is deployed to a live server.</p>
+                            <p>Visit the GitHub repository to see the complete source code and documentation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Have a Project in Mind?</h2>
+                    <p>Let's collaborate and build something amazing with AI/ML</p>
+                    <div class="cta-buttons">
+                        <a href="#hire-modal" class="btn btn-primary" onclick="openHireModal()">
+                            <i class="fas fa-rocket"></i>
+                            Start a Project
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hire Me Modal -->
+    <div class="modal" id="hire-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Let's Work Together!</h3>
+                <button class="modal-close" onclick="closeHireModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="hire-avatar">
+                    <div class="avatar-animation">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <p>Ready to bring AI/ML solutions to your project? Let's discuss how I can help you build intelligent systems that drive results.</p>
+                <div class="hire-actions">
+                    <a href="mailto:imtarunchaudharyy@gmail.com?subject=Hiring Inquiry - AI/ML Project&body=Hi Tarun,%0D%0A%0D%0AI'm interested in discussing a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A-%0D%0A-%0D%0A%0D%0ABest regards," class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-form"></i>
+                        Contact Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Tarun Kumar. All rights reserved.</p>
+                    <p>AI/ML Engineer | Mathura, India</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:imtarunchaudharyy@gmail.com">imtarunchaudharyy@gmail.com</a>
+                    <span>|</span>
+                    <a href="tel:+919027806285">+91-9027806285</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
