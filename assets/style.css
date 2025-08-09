@@ -405,8 +405,8 @@ a:hover {
 
 .profile-image-container {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
 }
 
 .profile-image {
@@ -1968,8 +1968,8 @@ main {
   }
 
   .profile-image-container {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
   }
 
   /* Grid Layouts */
