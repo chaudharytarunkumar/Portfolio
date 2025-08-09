@@ -379,7 +379,7 @@ a:hover {
 
 .social-link {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   width: 3rem;
   height: 3rem;
