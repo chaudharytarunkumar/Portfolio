@@ -309,6 +309,14 @@ a:hover {
   align-items: center;
 }
 
+.hero-text {
+  order: 2;
+}
+
+.hero-visual {
+  order: 1;
+}
+
 .hero-title {
   margin: 0 auto 2rem 0;
 }
