@@ -374,12 +374,12 @@ a:hover {
 .social-links {
   display: flex;
   gap: 1rem;
-  justify-content: left;
+  justify-content: center;
 }
 
 .social-link {
   display: flex;
-  align-items: left;
+  align-items: center;
   justify-content: center;
   width: 3rem;
   height: 3rem;
