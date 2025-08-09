@@ -374,6 +374,7 @@ a:hover {
 .social-links {
   display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 .social-link {
@@ -1963,8 +1964,22 @@ main {
   }
 
   .hero-cta {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+
+  .hero-cta .btn {
+    flex: 0 1 auto;
+    min-height: 44px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    width: fit-content;
+    white-space: nowrap;
   }
 
   .profile-image-container {
