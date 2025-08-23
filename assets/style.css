@@ -1043,6 +1043,59 @@ main {
   margin-top: 1.5rem;
 }
 
+/* Project impact metrics */
+.project-impact {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.impact-metric {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-tertiary);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  min-width: 6rem;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.impact-metric:hover {
+  background: var(--bg-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.impact-metric i {
+  font-size: 1.25rem;
+  color: var(--accent-primary);
+}
+
+.impact-metric span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Responsive: stack metrics on narrow screens */
+@media (max-width: 480px) {
+  .project-impact {
+    gap: 0.5rem;
+  }
+  .impact-metric {
+    min-width: auto;
+    padding: 0.5rem;
+    flex: 1 1 45%;
+  }
+}
+
 .coming-soon {
   opacity: 0.7;
 }
