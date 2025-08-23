@@ -4330,3 +4330,63 @@ input:focus, textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+
+/* Additional mobile optimizations for very small screens */
+@media (max-width: 480px) {
+  .profile-image-container {
+    width: min(250px, 60vw) !important;
+    height: min(250px, 60vw) !important;
+  }
+
+  .hero-visual {
+    margin-top: 2rem;
+  }
+
+  .hero-title .name {
+    font-size: 2.5rem !important;
+  }
+
+  .hero-title .title {
+    font-size: 1.8rem !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Ensure proper spacing and no overflow */
+  .container {
+    padding: 0 1rem !important;
+  }
+
+  .section-padding {
+    padding: 3rem 0;
+  }
+
+  /* Fix any remaining wide elements */
+  .hero-background,
+  .header {
+    overflow-x: hidden;
+  }
+
+  /* Optimize navigation for small screens */
+  .nav-list {
+    padding: 2rem 1rem;
+  }
+
+  .nav-link {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  /* Better button spacing */
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .btn + .btn {
+    margin-top: 0.5rem;
+  }
+}
