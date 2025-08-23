@@ -659,7 +659,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 0.75rem;
+  margin-bottom: 0.75rem;
   font-size: 1.25rem;
   color: white;
 }
