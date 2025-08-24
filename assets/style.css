@@ -3215,3 +3215,342 @@ textarea:focus {
     padding: 1.2rem;
   }
 }
+
+/* ==========================================================================
+   Experience Page - Hacker Style Terminal Theme
+   ========================================================================== */
+
+/* Experience Section */
+.experience-section,
+.development-section,
+.internships-section {
+  padding: 4rem 0;
+  background: var(--bg-primary);
+}
+
+.development-section {
+  background: var(--bg-secondary);
+}
+
+.internships-section {
+  background: var(--bg-primary);
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Experience Cards */
+.experience-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 50%,
+    var(--accent-primary) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover::before {
+  transform: scaleX(1);
+}
+
+.experience-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow:
+    0 0 20px rgba(0, 255, 0, 0.2),
+    inset 0 0 20px rgba(0, 255, 0, 0.05);
+  transform: translateY(-5px);
+}
+
+/* Current Role Special Styling */
+.current-role {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.current-role::before {
+  transform: scaleX(1);
+  animation: pulse-border 2s ease-in-out infinite alternate;
+}
+
+/* Role Icons and Status */
+.role-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.current-status {
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.active-status {
+  background: rgba(255, 204, 0, 0.1);
+  border: 1px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.completed-status {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--text-secondary);
+  color: var(--text-secondary);
+}
+
+/* Role Information */
+.role-info {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-title {
+  color: var(--accent-secondary);
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+}
+
+.organization {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.location-name,
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.location-name i,
+.duration i {
+  color: var(--accent-primary);
+  width: 16px;
+  text-align: center;
+}
+
+/* Skills Section */
+.skills-section {
+  margin-top: 1rem;
+}
+
+.skills-title {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+/* Career Progression Section */
+.progression-section {
+  padding: 4rem 0;
+  background: var(--bg-secondary);
+}
+
+.progression-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-item:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+}
+
+.timeline-item.current {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.timeline-item.current::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  animation: pulse-border 2s ease-in-out infinite alternate;
+}
+
+.timeline-marker {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.timeline-marker .year {
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-content h4 {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.progression-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-pill {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 204, 0, 0.1);
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+  transform: scale(1.05);
+}
+
+/* Responsive Design for Experience Page */
+@media (max-width: 768px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .role-title {
+    font-size: 1.2rem;
+  }
+
+  .progression-timeline {
+    gap: 1.5rem;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .timeline-marker {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-card {
+    padding: 1.2rem;
+  }
+
+  .timeline-marker {
+    width: 50px;
+    height: 50px;
+  }
+
+  .timeline-marker .year {
+    font-size: 0.9rem;
+  }
+}
