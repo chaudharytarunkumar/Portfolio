@@ -430,14 +430,31 @@ section {
   margin-bottom: 0.5rem;
 }
 
-.greeting::before {
-  content: '$ echo "';
-  color: var(--accent-secondary);
+/* Typing Animation */
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid var(--accent-primary);
+  white-space: nowrap;
+  animation: typing 3s steps(16, end), blink-cursor 0.75s step-end infinite;
+  max-width: 100%;
 }
 
-.greeting::after {
-  content: '"';
-  color: var(--accent-secondary);
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-cursor {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accent-primary);
+  }
 }
 
 .name {
