@@ -671,6 +671,68 @@ section {
   box-shadow: 0 0 20px var(--accent-secondary);
 }
 
+.btn-accent {
+  border-color: var(--accent-tertiary);
+  color: var(--accent-tertiary);
+  background: var(--bg-secondary);
+}
+
+.btn-accent:hover {
+  background: var(--accent-tertiary);
+  color: var(--bg-primary);
+  box-shadow: 0 0 25px var(--accent-tertiary);
+}
+
+/* Ripple Effect */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Enhanced Glow Effects */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 30px var(--accent-primary),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 0 35px var(--accent-primary),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary:hover {
+  box-shadow:
+    0 0 30px var(--accent-secondary),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-accent:hover {
+  box-shadow:
+    0 0 30px var(--accent-tertiary),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
 /* ==========================================================================
    Terminal/Matrix Neural Network Animation
    ========================================================================== */
@@ -1950,7 +2012,7 @@ textarea:focus {
 }
 
 .ascii-decoration::after {
-  content: '└─────────────────────────┘';
+  content: '└─────────────────────────���';
   display: block;
   font-family: var(--font-mono);
   color: var(--accent-primary);
