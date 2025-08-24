@@ -3140,6 +3140,10 @@ textarea:focus {
   background: var(--bg-primary);
 }
 
+.stats-section .container {
+  padding-bottom: 23px;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
