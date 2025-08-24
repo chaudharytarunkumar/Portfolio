@@ -2639,7 +2639,7 @@ textarea:focus {
 }
 
 .ascii-decoration::after {
-  content: '└���────────────────────────┘';
+  content: '└─────────────────────────┘';
   display: block;
   font-family: var(--font-mono);
   color: var(--accent-primary);
@@ -3038,6 +3038,10 @@ textarea:focus {
 .focus-section {
   padding: 4rem 0;
   background: var(--bg-secondary);
+}
+
+.focus-section .container {
+  max-width: 1294px;
 }
 
 .focus-grid {
