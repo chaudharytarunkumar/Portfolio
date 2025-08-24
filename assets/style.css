@@ -197,7 +197,7 @@ code, pre {
   border: 1px solid var(--code-border);
   border-radius: 0;
   padding: 0.2rem 0.4rem;
-  color: var(--terminal-green);
+  color: var(--text-primary);
   font-size: 0.85rem;
 }
 
@@ -1924,7 +1924,7 @@ textarea:focus {
 
 /* ASCII Art Decorations */
 .ascii-decoration::before {
-  content: '┌─────────���───────────────┐';
+  content: '┌─────────────────────────┐';
   display: block;
   font-family: var(--font-mono);
   color: var(--accent-primary);
