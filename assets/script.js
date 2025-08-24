@@ -277,27 +277,34 @@ class NeuralNetworkAnimation {
             this.ctx.stroke();
         });
 
-        // Draw nodes
+        // Draw nodes (Terminal Style)
         this.nodes.forEach(node => {
-            const pulseSize = Math.sin(node.pulse) * 0.5 + 1;
+            const pulseSize = Math.sin(node.pulse) * 0.3 + 1;
 
-            // Main node (neon blue)
+            // Outer glow (terminal green)
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 1.8, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'rgba(0, 255, 0, 0.1)';
+            this.ctx.fill();
+
+            // Main node (bright terminal green)
             this.ctx.beginPath();
             this.ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'rgba(0, 128, 255, 0.9)';
+            this.ctx.fillStyle = 'rgba(0, 255, 0, 0.8)';
             this.ctx.fill();
 
-            // Outer glow (neon violet)
+            // Inner core (bright green)
             this.ctx.beginPath();
-            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 1.5, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'rgba(157, 0, 255, 0.3)';
+            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 0.4, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'rgba(0, 255, 0, 1)';
             this.ctx.fill();
 
-            // Inner core (bright cyan)
+            // Terminal-style border
             this.ctx.beginPath();
-            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 0.5, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'rgba(0, 212, 255, 1)';
-            this.ctx.fill();
+            this.ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
+            this.ctx.strokeStyle = 'rgba(0, 255, 0, 0.6)';
+            this.ctx.lineWidth = 1;
+            this.ctx.stroke();
         });
     }
 
