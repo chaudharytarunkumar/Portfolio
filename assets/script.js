@@ -68,6 +68,20 @@ class NavigationManager {
     init() {
         this.bindEvents();
         this.setActiveNavLink();
+        this.initScrollHighlighting();
+        this.initTypingAnimation();
+    }
+
+    initTypingAnimation() {
+        const typingElement = document.querySelector('.typing-animation');
+        if (typingElement) {
+            // Restart typing animation on page load
+            setTimeout(() => {
+                typingElement.style.animation = 'none';
+                typingElement.offsetHeight; // Trigger reflow
+                typingElement.style.animation = 'typing 3s steps(16, end), blink-cursor 0.75s step-end infinite';
+            }, 500);
+        }
     }
 
     toggleMobileMenu() {
