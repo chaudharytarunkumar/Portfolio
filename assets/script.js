@@ -68,6 +68,25 @@ class NavigationManager {
     init() {
         this.bindEvents();
         this.setActiveNavLink();
+        this.initScrollHighlighting();
+        this.initTypingAnimation();
+    }
+
+    initTypingAnimation() {
+        const typingElement = document.querySelector('.typing-animation');
+        if (typingElement) {
+            // Restart typing animation on page load
+            setTimeout(() => {
+                typingElement.style.animation = 'none';
+                typingElement.offsetHeight; // Trigger reflow
+                typingElement.style.animation = 'typing 3s steps(16, end), blink-cursor 0.75s step-end infinite';
+
+                // Add completion class after typing finishes
+                setTimeout(() => {
+                    typingElement.classList.add('completed');
+                }, 3500);
+            }, 500);
+        }
     }
 
     toggleMobileMenu() {
@@ -108,7 +127,7 @@ class NavigationManager {
     setActiveNavLink() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             const href = link.getAttribute('href');
@@ -116,6 +135,34 @@ class NavigationManager {
                 link.classList.add('active');
             }
         });
+    }
+
+    initScrollHighlighting() {
+        // Only apply on homepage
+        if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+            const sections = document.querySelectorAll('section[id], main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id') || 'home';
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('scroll-active');
+                    if (link.getAttribute('href') === 'index.html' &&
+                        (current === '' || current === 'home')) {
+                        link.classList.add('scroll-active');
+                    }
+                });
+            });
+        }
     }
 
     bindEvents() {
@@ -249,7 +296,7 @@ class NeuralNetworkAnimation {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        // Draw connections
+        // Draw connections (Terminal Grid Style)
         this.connections.forEach(connection => {
             const nodeA = this.nodes[connection.from];
             const nodeB = this.nodes[connection.to];
@@ -257,46 +304,54 @@ class NeuralNetworkAnimation {
                 Math.pow(nodeA.x - nodeB.x, 2) +
                 Math.pow(nodeA.y - nodeB.y, 2)
             );
-            
+
             const opacity = 1 - (distance / connection.maxDistance);
-            
+
+            // Main terminal green lines
             this.ctx.beginPath();
             this.ctx.moveTo(nodeA.x, nodeA.y);
             this.ctx.lineTo(nodeB.x, nodeB.y);
-            this.ctx.strokeStyle = `rgba(157, 0, 255, ${opacity * 0.4})`;
-            this.ctx.lineWidth = 1.5;
+            this.ctx.strokeStyle = `rgba(0, 255, 0, ${opacity * 0.6})`;
+            this.ctx.lineWidth = 1;
             this.ctx.stroke();
 
-            // Add secondary neon lines
+            // Add terminal glow effect
             this.ctx.beginPath();
             this.ctx.moveTo(nodeA.x, nodeA.y);
             this.ctx.lineTo(nodeB.x, nodeB.y);
-            this.ctx.strokeStyle = `rgba(0, 128, 255, ${opacity * 0.2})`;
-            this.ctx.lineWidth = 0.8;
+            this.ctx.strokeStyle = `rgba(0, 255, 0, ${opacity * 0.2})`;
+            this.ctx.lineWidth = 3;
             this.ctx.stroke();
         });
 
-        // Draw nodes
+        // Draw nodes (Terminal Style)
         this.nodes.forEach(node => {
-            const pulseSize = Math.sin(node.pulse) * 0.5 + 1;
+            const pulseSize = Math.sin(node.pulse) * 0.3 + 1;
 
-            // Main node (neon blue)
+            // Outer glow (terminal green)
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 1.8, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'rgba(0, 255, 0, 0.1)';
+            this.ctx.fill();
+
+            // Main node (bright terminal green)
             this.ctx.beginPath();
             this.ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'rgba(0, 128, 255, 0.9)';
+            this.ctx.fillStyle = 'rgba(0, 255, 0, 0.8)';
             this.ctx.fill();
 
-            // Outer glow (neon violet)
+            // Inner core (bright green)
             this.ctx.beginPath();
-            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 1.5, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'rgba(157, 0, 255, 0.3)';
+            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 0.4, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'rgba(0, 255, 0, 1)';
             this.ctx.fill();
 
-            // Inner core (bright cyan)
+            // Terminal-style border
             this.ctx.beginPath();
-            this.ctx.arc(node.x, node.y, node.radius * pulseSize * 0.5, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'rgba(0, 212, 255, 1)';
-            this.ctx.fill();
+            this.ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
+            this.ctx.strokeStyle = 'rgba(0, 255, 0, 0.6)';
+            this.ctx.lineWidth = 1;
+            this.ctx.stroke();
         });
     }
 
