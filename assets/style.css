@@ -3194,10 +3194,9 @@ textarea:focus {
 
 /* CTA Section */
 .cta-section {
-  padding: 4rem 0;
+  padding: 4rem 0 16px 0;
   background: var(--bg-secondary);
   border-top: 2px solid var(--accent-primary);
-  padding-bottom: 16px;
 }
 
 .cta-content {
