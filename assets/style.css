@@ -311,8 +311,16 @@ section {
 }
 
 .nav-link:hover::before,
-.nav-link.active::before {
+.nav-link.active::before,
+.nav-link.scroll-active::before {
   opacity: 1;
+}
+
+.nav-link.scroll-active {
+  color: var(--accent-primary);
+  background: rgba(0, 255, 0, 0.05);
+  border-color: var(--accent-primary);
+  text-shadow: 0 0 8px currentColor;
 }
 
 .nav-actions {
