@@ -108,7 +108,7 @@ class NavigationManager {
     setActiveNavLink() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             const href = link.getAttribute('href');
@@ -116,6 +116,34 @@ class NavigationManager {
                 link.classList.add('active');
             }
         });
+    }
+
+    initScrollHighlighting() {
+        // Only apply on homepage
+        if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+            const sections = document.querySelectorAll('section[id], main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id') || 'home';
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('scroll-active');
+                    if (link.getAttribute('href') === 'index.html' &&
+                        (current === '' || current === 'home')) {
+                        link.classList.add('scroll-active');
+                    }
+                });
+            });
+        }
     }
 
     bindEvents() {
