@@ -3042,6 +3042,7 @@ textarea:focus {
 
 .focus-section .container {
   max-width: 1294px;
+  padding: 0 16px 50px;
 }
 
 .focus-grid {
