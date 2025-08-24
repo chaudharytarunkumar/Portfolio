@@ -505,9 +505,15 @@ section {
   font-weight: 400;
 }
 
+.title {
+  color: var(--accent-secondary);
+  position: relative;
+}
+
 .title::before {
   content: '# ';
-  color: var(--text-muted);
+  color: var(--accent-secondary);
+  font-weight: 700;
 }
 
 @keyframes terminal-glow {
