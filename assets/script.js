@@ -80,6 +80,11 @@ class NavigationManager {
                 typingElement.style.animation = 'none';
                 typingElement.offsetHeight; // Trigger reflow
                 typingElement.style.animation = 'typing 3s steps(16, end), blink-cursor 0.75s step-end infinite';
+
+                // Add completion class after typing finishes
+                setTimeout(() => {
+                    typingElement.classList.add('completed');
+                }, 3500);
             }, 500);
         }
     }
