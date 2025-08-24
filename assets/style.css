@@ -3197,6 +3197,7 @@ textarea:focus {
   padding: 4rem 0;
   background: var(--bg-secondary);
   border-top: 2px solid var(--accent-primary);
+  padding-bottom: 16px;
 }
 
 .cta-content {
