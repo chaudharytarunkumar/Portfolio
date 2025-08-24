@@ -249,7 +249,7 @@ class NeuralNetworkAnimation {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        // Draw connections
+        // Draw connections (Terminal Grid Style)
         this.connections.forEach(connection => {
             const nodeA = this.nodes[connection.from];
             const nodeB = this.nodes[connection.to];
@@ -257,22 +257,23 @@ class NeuralNetworkAnimation {
                 Math.pow(nodeA.x - nodeB.x, 2) +
                 Math.pow(nodeA.y - nodeB.y, 2)
             );
-            
+
             const opacity = 1 - (distance / connection.maxDistance);
-            
+
+            // Main terminal green lines
             this.ctx.beginPath();
             this.ctx.moveTo(nodeA.x, nodeA.y);
             this.ctx.lineTo(nodeB.x, nodeB.y);
-            this.ctx.strokeStyle = `rgba(157, 0, 255, ${opacity * 0.4})`;
-            this.ctx.lineWidth = 1.5;
+            this.ctx.strokeStyle = `rgba(0, 255, 0, ${opacity * 0.6})`;
+            this.ctx.lineWidth = 1;
             this.ctx.stroke();
 
-            // Add secondary neon lines
+            // Add terminal glow effect
             this.ctx.beginPath();
             this.ctx.moveTo(nodeA.x, nodeA.y);
             this.ctx.lineTo(nodeB.x, nodeB.y);
-            this.ctx.strokeStyle = `rgba(0, 128, 255, ${opacity * 0.2})`;
-            this.ctx.lineWidth = 0.8;
+            this.ctx.strokeStyle = `rgba(0, 255, 0, ${opacity * 0.2})`;
+            this.ctx.lineWidth = 3;
             this.ctx.stroke();
         });
 
