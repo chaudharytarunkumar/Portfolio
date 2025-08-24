@@ -619,6 +619,24 @@ section {
   background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
+  box-shadow:
+    0 0 20px var(--accent-primary),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  animation: profile-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes profile-glow {
+  from {
+    box-shadow:
+      0 0 20px var(--accent-primary),
+      inset 0 0 20px rgba(0, 255, 0, 0.1);
+  }
+  to {
+    box-shadow:
+      0 0 30px var(--accent-primary),
+      0 0 50px rgba(0, 255, 0, 0.3),
+      inset 0 0 30px rgba(0, 255, 0, 0.2);
+  }
 }
 
 .profile-image::before {
