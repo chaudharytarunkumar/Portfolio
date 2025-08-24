@@ -3200,10 +3200,6 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -3217,13 +3213,5 @@ textarea:focus {
 @media (max-width: 480px) {
   .education-card {
     padding: 1.2rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
   }
 }
