@@ -2639,7 +2639,7 @@ textarea:focus {
 }
 
 .ascii-decoration::after {
-  content: '└─────────────────────────┘';
+  content: '└���────────────────────────┘';
   display: block;
   font-family: var(--font-mono);
   color: var(--accent-primary);
@@ -2759,6 +2759,10 @@ textarea:focus {
 .education-section {
   padding: 4rem 0;
   background: var(--bg-primary);
+}
+
+.education-section .container {
+  max-width: 1471px;
 }
 
 .education-grid {
