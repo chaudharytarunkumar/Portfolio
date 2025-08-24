@@ -48,12 +48,12 @@
 
 /* Light Theme Override (Amber Terminal) */
 [data-theme="light"] {
-  --bg-primary: #1a1a0a;
-  --bg-secondary: #2a2a1a;
-  --bg-tertiary: #3a3a2a;
-  --text-primary: #ffff00;
-  --text-secondary: #ffcc00;
-  --text-muted: #cc9900;
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --bg-tertiary: #3a3a3a;
+  --text-primary: #ffffff;
+  --text-secondary: #f0f0f0;
+  --text-muted: #c0c0c0;
   --accent-primary: #ffff00;
   --accent-secondary: #ffcc00;
   --accent-tertiary: #ff9900;
@@ -1924,7 +1924,7 @@ textarea:focus {
 
 /* ASCII Art Decorations */
 .ascii-decoration::before {
-  content: '┌─────────────────────────┐';
+  content: '┌─────────���───────────────┐';
   display: block;
   font-family: var(--font-mono);
   color: var(--accent-primary);
