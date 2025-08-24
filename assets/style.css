@@ -3228,12 +3228,24 @@ textarea:focus {
   background: var(--bg-primary);
 }
 
+.experience-section .container {
+  max-width: 1400px;
+}
+
 .development-section {
   background: var(--bg-secondary);
 }
 
+.development-section .container {
+  max-width: 1350px;
+}
+
 .internships-section {
   background: var(--bg-primary);
+}
+
+.internships-section .container {
+  max-width: 1400px;
 }
 
 .experience-grid {
