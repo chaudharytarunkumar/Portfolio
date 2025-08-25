@@ -895,15 +895,33 @@
                     submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed';
                     submitBtn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
 
-                    // Show error message
-                    showError('message', 'Failed to send message. Please try again or contact directly via email.');
+                    // Create fallback mailto link
+                    const formData = {
+                        name: templateParams.from_name,
+                        email: templateParams.from_email,
+                        subject: templateParams.subject,
+                        category: templateParams.category,
+                        message: templateParams.message
+                    };
 
-                    // Reset button after 3 seconds
+                    const emailBody = `Name: ${formData.name}%0D%0A` +
+                                    `Email: ${formData.email}%0D%0A` +
+                                    `Category: ${formData.category}%0D%0A%0D%0A` +
+                                    `Message:%0D%0A${formData.message}`;
+
+                    const mailtoLink = `mailto:imtarunchaudharyy@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
+
+                    // Show error message with fallback option
+                    const errorMsg = `EmailJS failed. <a href="${mailtoLink}" style="color: #ffff00; text-decoration: underline;">Click here to open your email client</a> as fallback.`;
+                    showError('message', errorMsg);
+
+                    // Reset button after 5 seconds
                     setTimeout(() => {
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
                         submitBtn.style.background = '';
-                    }, 3000);
+                        hideError('message');
+                    }, 5000);
                 });
 
             return false;
