@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Work Experience - Tarun Kumar AI/ML Engineer">
+    <title>Experience - Tarun Kumar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Experience-specific styles for enhanced recruiter-friendly design */
+        .code-header {
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            margin: 3rem 0 2rem 0;
+            text-shadow: 0 0 10px currentColor;
+            position: relative;
+        }
+
+        .code-header::before {
+            content: '$ ';
+            color: var(--accent-secondary);
+        }
+
+        .code-comment {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .professional-experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .experience-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary)) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .experience-card:hover::before {
+            opacity: 1;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            border-color: var(--accent-primary);
+        }
+
+        .experience-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px var(--shadow-light);
+        }
+
+        .experience-details {
+            flex: 1;
+        }
+
+        .job-title {
+            color: var(--accent-secondary);
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px currentColor;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .company-info {
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .duration {
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            background: var(--bg-primary);
+            padding: 0.3rem 0.8rem;
+            border: 1px solid var(--accent-primary);
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .current-badge {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .key-achievements {
+            margin-top: 1.5rem;
+        }
+
+        .achievements-title {
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .achievements-title::before {
+            content: '// ';
+            color: var(--text-muted);
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .achievements-list li::before {
+            content: '> ';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .skills-used {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-primary);
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            padding: 0.3rem 0.6rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .section-divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            margin: 4rem 0;
+            opacity: 0.3;
+        }
+
+        .freelance-section {
+            background: var(--bg-tertiary);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-top: 1px solid var(--accent-primary);
+            border-bottom: 1px solid var(--accent-primary);
+        }
+
+        .career-goals .container {
+            padding: 0 1rem 1.625rem;
+        }
+
+        .metric-highlight {
+            color: var(--accent-secondary);
+            font-weight: bold;
+            text-shadow: 0 0 5px currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .experience-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .job-title {
+                font-size: 1.2rem;
+            }
+
+            .company-info {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="experience.html" class="nav-link active">Experience</a></li>
+                    <li><a href="profiles.html" class="nav-link">Profiles</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+                    <li><a href="skills-certificates.html" class="nav-link">Skills & Certificates</a></li>
+<!--                     <li><a href="milestones.html" class="nav-link">Milestones</a></li> -->
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Professional Experience</h1>
+                    <p class="page-subtitle">Exploring my career journey in AI/ML, research, and technology-driven roles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section class="experience-timeline">
+            <div class="container">
+                <div class="code-header">// PROFESSIONAL EXPERIENCE</div>
+                <div class="code-comment">/* Roles & Contributions */</div>
+                
+                <div class="professional-experience-grid">
+                    
+                    <!-- Tech Community Leader -->
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="role-icon">
+                                🧠
+                            </div>
+                            <div class="experience-details">
+                                <h3 class="job-title">Tech Community Leader</h3>
+                                <div class="company-info">0Day Alliance • Remote</div>
+                                <div class="duration">Jan 2024 - Dec 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="key-achievements">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li>Led and mentored <span class="metric-highlight">50+ community members</span> in AI/ML and personal branding</li>
+                                <li>Organized collaborative learning sessions and mentor panels for India's fastest-growing developer network</li>
+                                <li>Coordinated discussions on prompt engineering and AI agent safety</li>
+                                <li>Built expertise network spanning AI, ML, and Cybersecurity domains</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skills-used">
+                            <span class="skill-tag">AI/ML Mentoring</span>
+                            <span class="skill-tag">Community Leadership</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Open Source</span>
+                            <span class="skill-tag">Personal Branding</span>
+                        </div>
+                    </div>
+
+                    <!-- Head of Technical Community -->
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="role-icon">
+                                👑
+                            </div>
+                            <div class="experience-details">
+                                <h3 class="job-title">Head of Technical Community</h3>
+                                <div class="company-info">GL Bajaj Group of Institutions • Mathura, India</div>
+                                <div class="duration">Sep 2023 - Dec 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="key-achievements">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li>Organized HackFinity 1.0 hackathon with <span class="metric-highlight">100+ participants</span></li>
+                                <li>Conducted hands-on workshops on Git, Python, TensorFlow, and Web Development</li>
+                                <li>Led content, marketing, and technical coordination initiatives</li>
+                                <li>Built inclusive tech learning ecosystem for students and industry professionals</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skills-used">
+                            <span class="skill-tag">Event Management</span>
+                            <span class="skill-tag">Technical Training</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">Content Strategy</span>
+                            <span class="skill-tag">Marketing Coordination</span>
+                        </div>
+                    </div>
+
+                    <!-- GFG Chairperson -->
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="role-icon">
+                                💻
+                            </div>
+                            <div class="experience-details">
+                                <h3 class="job-title">Chairperson - GFG Student Chapter</h3>
+                                <div class="company-info">GeeksforGeeks • GL Bajaj, Mathura</div>
+                                <div class="duration">Apr 2024 - Dec 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="key-achievements">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li>Led <span class="metric-highlight">10+ coding events</span> and DSA workshops</li>
+                                <li>Organized guest speaker sessions with industry experts</li>
+                                <li>Increased club membership and active participation by <span class="metric-highlight">200%</span></li>
+                                <li>Established partnerships with tech companies for events</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skills-used">
+                            <span class="skill-tag">Competitive Programming</span>
+                            <span class="skill-tag">DSA Training</span>
+                            <span class="skill-tag">Open Source</span>
+                            <span class="skill-tag">Student Leadership</span>
+                            <span class="skill-tag">Industry Relations</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="code-header">// FREELANCE & PROJECT WORK</div>
+                <div class="code-comment">/* Independent Contributions */</div>
+
+                <div class="freelance-section">
+                    <div class="professional-experience-grid">
+
+                        <!-- AI Project Developer -->
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div class="role-icon">
+                                    🚀
+                                </div>
+                                <div class="experience-details">
+                                    <h3 class="job-title">AI Project Developer</h3>
+                                    <div class="company-info">Freelance • Remote</div>
+                                    <div class="duration">Jul 2023 - Present</div>
+                                </div>
+                            </div>
+                            
+                            <div class="key-achievements">
+                                <h4 class="achievements-title">Key Projects</h4>
+                                <ul class="achievements-list">
+                                    <li>Created PDFGenie: AI-powered PDF chatbot with <span class="metric-highlight">95% accuracy</span> using OpenAI API</li>
+                                    <li>Built MyTherapist: emotion-aware AI chatbot using HuggingFace Transformers</li>
+                                    <li>Integrated production-ready APIs and improved model efficiency by <span class="metric-highlight">40%</span></li>
+                                    <li>Deployed projects with scalable hosting solutions for client demonstrations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skills-used">
+                                <span class="skill-tag">OpenAI API</span>
+                                <span class="skill-tag">HuggingFace</span>
+                                <span class="skill-tag">Streamlit</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">NLP</span>
+                                <span class="skill-tag">API Integration</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="code-header">// INTERNSHIPS & EARLY CAREER</div>
+                <div class="code-comment">/* Professional Development */</div>
+
+                <div class="professional-experience-grid">
+
+                    <!-- Internshala Student Partner -->
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="role-icon">
+                                📊
+                            </div>
+                            <div class="experience-details">
+                                <h3 class="job-title">Internshala Student Partner</h3>
+                                <div class="company-info">Internshala • Remote</div>
+                                <div class="duration">Jun 2024 - Jul 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="key-achievements">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li>Promoted learning opportunities to <span class="metric-highlight">100+ peers</span></li>
+                                <li>Guided students in resume building and internship applications</li>
+                                <li>Managed event awareness campaigns with <span class="metric-highlight">85% engagement rate</span></li>
+                                <li>Built strong network across different academic domains</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skills-used">
+                            <span class="skill-tag">Career Guidance</span>
+                            <span class="skill-tag">Resume Building</span>
+                            <span class="skill-tag">Event Management</span>
+                            <span class="skill-tag">Peer Mentoring</span>
+                            <span class="skill-tag">Communication</span>
+                        </div>
+                    </div>
+
+                    <!-- Frontend Developer Intern -->
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="role-icon">
+                                💻
+                            </div>
+                            <div class="experience-details">
+                                <h3 class="job-title">Frontend Development Intern</h3>
+                                <div class="company-info">CodSoft • Remote</div>
+                                <div class="duration">Aug 2023 - Sep 2023</div>
+                            </div>
+                        </div>
+                        
+                        <div class="key-achievements">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li>Developed responsive components with <span class="metric-highlight">100% mobile compatibility</span></li>
+                                <li>Collaborated in fast-paced virtual environment with Git-based version control</li>
+                                <li>Delivered portfolio-quality UI layouts optimized for performance</li>
+                                <li>Implemented modern web development best practices and workflows</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skills-used">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Git Version Control</span>
+                            <span class="skill-tag">Virtual Collaboration</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Career Impact Summary -->
+        <section class="career-goals">
+            <div class="container">
+                <div class="code-header">// CAREER IMPACT & FUTURE ASPIRATIONS</div>
+                <div class="code-comment">/* Professional Growth Trajectory */</div>
+                
+                <div class="goals-content">
+                    <div class="goals-text">
+                        <h2>Professional Impact</h2>
+                        <p>
+                            My career combines technical expertise in AI/ML with proven leadership capabilities, 
+                            having mentored <span class="metric-highlight">150+ students</span> and led major tech initiatives. 
+                            Ready to drive innovation in AI-powered solutions for enterprise challenges.
+                        </p>
+                        <div class="goals-list">
+                            <div class="goal-item">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>AI/ML Engineer Role</h4>
+                                    <p>Seeking full-time opportunities in AI/ML development and research</p>
+                                </div>
+                            </div>
+                            <div class="goal-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <h4>Innovation & Research</h4>
+                                    <p>Contributing to cutting-edge AI research and practical applications</p>
+                                </div>
+                            </div>
+                            <div class="goal-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Tech Leadership</h4>
+                                    <p>Leading technical teams and mentoring next generation developers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goals-visual">
+                        <div class="career-path">
+                            <div class="path-step completed">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Foundation</h4>
+                                    <p>Leadership & Academic Excellence</p>
+                                </div>
+                            </div>
+                            <div class="path-step completed">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Technical Skills</h4>
+                                    <p>Frontend Development & Programming</p>
+                                </div>
+                            </div>
+                            <div class="path-step current">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>AI/ML Specialization</h4>
+                                    <p>Current Focus Area</p>
+                                </div>
+                            </div>
+                            <div class="path-step future">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Professional Impact</h4>
+                                    <p>Industry Leadership & Innovation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Work Together?</h2>
+                    <p>Let's discuss how my experience and skills can contribute to your next project</p>
+                    <div class="cta-buttons">
+                        <a href="#hire-modal" class="btn btn-primary" onclick="openHireModal()">
+                            <i class="fas fa-rocket"></i>
+                            Hire Me
+                        </a>
+                        <a href="assets/resume.pdf" class="btn btn-secondary" download>
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hire Me Modal -->
+    <div class="modal" id="hire-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Let's Work Together!</h3>
+                <button class="modal-close" onclick="closeHireModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="hire-avatar">
+                    <div class="avatar-animation">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <p>Ready to bring AI/ML solutions to your project? Let's discuss how I can help you build intelligent systems that drive results.</p>
+                <div class="hire-actions">
+                    <a href="mailto:imtarunchaudharyy@gmail.com?subject=Hiring Inquiry - AI/ML Project&body=Hi Tarun,%0D%0A%0D%0AI'm interested in discussing a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A-%0D%0A-%0D%0A%0D%0ABest regards," class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-form"></i>
+                        Contact Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Tarun Kumar. All rights reserved.</p>
+                    <p>AI/ML Engineer | Mathura, India</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:imtarunchaudharyy@gmail.com">imtarunchaudharyy@gmail.com</a>
+                    <span>|</span>
+                    <a href="tel:+919027806285">+91-9027806285</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

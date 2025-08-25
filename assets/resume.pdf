@@ -1,0 +1,265 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Resources <<
+/Font <<
+/F1 4 0 R
+/F2 5 0 R
+/F3 6 0 R
+>>
+>>
+/Contents 7 0 R
+>>
+endobj
+
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Oblique
+>>
+endobj
+
+7 0 obj
+<<
+/Length 3240
+>>
+stream
+BT
+/F1 20 Tf
+50 750 Td
+(TARUN KUMAR) Tj
+0 -25 Td
+/F2 12 Tf
+(AI/ML Engineer & Developer) Tj
+0 -30 Td
+/F2 10 Tf
+(imtarunchaudharyy@gmail.com | +91-9027806285 | Mathura, India) Tj
+0 -15 Td
+(linkedin.com/in/iamtarunchaudhary | github.com/chaudharytarunkumar) Tj
+
+0 -40 Td
+/F1 14 Tf
+(CAREER OBJECTIVE) Tj
+0 -20 Td
+/F2 10 Tf
+(AI/ML enthusiast with expertise in chatbots, neural networks, NLP, and leadership as GFG Chair.) Tj
+0 -12 Td
+(Proficient in Python, TensorFlow, and data-driven solutions, seeking to contribute to innovative) Tj
+0 -12 Td
+(AI projects that make a meaningful impact on society and business outcomes.) Tj
+
+0 -30 Td
+/F1 14 Tf
+(EDUCATION) Tj
+0 -20 Td
+/F1 11 Tf
+(Bachelor of Technology \(B.Tech\) - AI & Machine Learning) Tj
+225 0 Td
+/F2 10 Tf
+(Aug 2022 - Jun 2026) Tj
+-225 -15 Td
+/F2 10 Tf
+(G. L. Bajaj Group of Institutions, Mathura) Tj
+150 0 Td
+(CGPA: 7.66/10) Tj
+-150 -20 Td
+/F1 11 Tf
+(Senior Secondary \(XII\) - Science, CBSE) Tj
+200 0 Td
+/F2 10 Tf
+(Apr 2021 - Mar 2022) Tj
+-200 -15 Td
+/F2 10 Tf
+(Jaypee Vidya Mandir, Anoopshahr) Tj
+150 0 Td
+(Percentage: 84%) Tj
+
+-150 -35 Td
+/F1 14 Tf
+(TECHNICAL SKILLS) Tj
+0 -20 Td
+/F1 11 Tf
+(Programming & Databases:) Tj
+0 -12 Td
+/F2 10 Tf
+(Java, Python, C/C++, HTML, CSS, JavaScript, MySQL, Data Structures, Algorithms, OOP, DBMS) Tj
+0 -18 Td
+/F1 11 Tf
+(AI & Data Technologies:) Tj
+0 -12 Td
+/F2 10 Tf
+(AI, ML, Deep Learning, Neural Networks, NLP, Data Analysis, TensorFlow, Scikit-Learn, HuggingFace) Tj
+0 -18 Td
+/F1 11 Tf
+(Tools & Platforms:) Tj
+0 -12 Td
+/F2 10 Tf
+(GitHub, Google Cloud, Google Colab, VS Code, PyCharm, Jupyter Notebook, Microsoft Office) Tj
+0 -18 Td
+/F1 11 Tf
+(APIs & Frameworks:) Tj
+0 -12 Td
+/F2 10 Tf
+(Flask, OpenAPI, PyPDF2, pyttsx3, pyngrok, Gemini API) Tj
+
+0 -30 Td
+/F1 14 Tf
+(PROJECTS) Tj
+0 -20 Td
+/F1 11 Tf
+(PDFGenie Chatbot) Tj
+300 0 Td
+/F2 10 Tf
+(July 2025) Tj
+-300 -15 Td
+/F2 10 Tf
+(• Built an AI-powered PDF assistant for document summarization, interactive chat, and text-to-speech) Tj
+0 -12 Td
+(• Integrated OpenAI API, PyPDF2, and pyttsx3 with audio file download fallback) Tj
+0 -12 Td
+(• Improved PDF processing time by 30% through optimized algorithms) Tj
+0 -12 Td
+(• Technologies: Python, OpenAI, PyPDF2, Text-to-Speech) Tj
+
+0 -20 Td
+/F1 11 Tf
+(MyTherapist Chatbot) Tj
+300 0 Td
+/F2 10 Tf
+(June 2025) Tj
+-300 -15 Td
+/F2 10 Tf
+(• Developed AI mental health chatbot using Streamlit, Transformers, and TextBlob for emotion detection) Tj
+0 -12 Td
+(• Integrated HuggingFace models, motivational quote generation, and deployed via ngrok) Tj
+0 -12 Td
+(• Implemented supportive conversation flow and mental wellness resources) Tj
+0 -12 Td
+(• Technologies: Python, HuggingFace, Streamlit, NLP) Tj
+
+0 -30 Td
+/F1 14 Tf
+(WORK EXPERIENCE) Tj
+0 -20 Td
+/F1 11 Tf
+(Internshala Student Partner) Tj
+250 0 Td
+/F2 10 Tf
+(Jun 2024 - Jul 2024) Tj
+-250 -15 Td
+/F3 10 Tf
+(Internshala, Virtual) Tj
+0 -12 Td
+/F2 10 Tf
+(• Promoted Internshala offerings to 100+ peers, increasing engagement by 25%) Tj
+0 -12 Td
+(• Guided students toward relevant opportunities and skill development workshops) Tj
+
+0 -20 Td
+/F1 11 Tf
+(Frontend Developer Intern) Tj
+250 0 Td
+/F2 10 Tf
+(Aug 2023 - Sep 2023) Tj
+-250 -15 Td
+/F3 10 Tf
+(CodSoft, Remote) Tj
+0 -12 Td
+/F2 10 Tf
+(• Built responsive UI components using HTML, CSS, and JavaScript) Tj
+0 -12 Td
+(• Collaborated in agile team environment to deliver high-quality web interfaces) Tj
+
+0 -30 Td
+/F1 14 Tf
+(TRAINING & CERTIFICATIONS) Tj
+0 -20 Td
+/F1 11 Tf
+(Frontend Developer Training) Tj
+200 0 Td
+/F2 10 Tf
+(Aug 2023 - Sep 2023) Tj
+-200 -12 Td
+/F3 10 Tf
+(CodSoft, Virtual) Tj
+200 0 Td
+/F1 11 Tf
+(IPR Career Summit 2024) Tj
+100 0 Td
+/F2 10 Tf
+(Dec 2024) Tj
+-300 -12 Td
+/F3 10 Tf
+(TurnIP, Virtual) Tj
+
+200 0 Td
+0 -25 Td
+/F1 14 Tf
+(ACHIEVEMENTS) Tj
+0 -15 Td
+/F2 10 Tf
+(• Chairperson, GeeksForGeeks Students Chapter - GL Bajaj) Tj
+0 -12 Td
+(• Organized college-level hackathon HackFinity 1.0 \(Oct 2024\)) Tj
+0 -12 Td
+(• Recognized as GeeksForGeeks Alumni Contributor) Tj
+0 -12 Td
+(• Recognized as the School Captain) Tj
+
+ET
+endstream
+endobj
+
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000000338 00000 n 
+0000000399 00000 n 
+0000000465 00000 n 
+trailer
+<<
+/Size 8
+/Root 1 0 R
+>>
+startxref
+3758
+%%EOF

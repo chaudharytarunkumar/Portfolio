@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Technical blogs on AI, Machine Learning, Python, and software development by Tarun Kumar. In-depth tutorials, insights, and practical guides for developers and tech enthusiasts.">
+    <meta name="keywords" content="AI blogs, Machine Learning tutorials, Python development, Chatbot development, Technical writing, AI engineer blog, Programming tutorials, Tech insights, Tarun Kumar blogs">
+    <meta name="author" content="Tarun Kumar">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tarun-kumar-ai-portfolio.vercel.app/blogs.html">
+    <meta property="og:title" content="Technical Blogs - AI & ML Insights by Tarun Kumar">
+    <meta property="og:description" content="Explore in-depth technical blogs on AI, Machine Learning, Python development, and cutting-edge technology insights. Learn from practical tutorials and real-world project experiences.">
+    <meta property="og:image" content="https://tarun-kumar-ai-portfolio.vercel.app/assets/blog-preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tarun-kumar-ai-portfolio.vercel.app/blogs.html">
+    <meta property="twitter:title" content="Technical Blogs - AI & ML Insights by Tarun Kumar">
+    <meta property="twitter:description" content="In-depth technical blogs on AI, ML, and software development with practical tutorials and insights.">
+    <meta property="twitter:image" content="https://tarun-kumar-ai-portfolio.vercel.app/assets/blog-preview.jpg">
+
+    <title>Technical Blogs - AI & ML Insights | Tarun Kumar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link rel="canonical" href="https://tarun-kumar-ai-portfolio.vercel.app/blogs.html">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/blog-enhanced.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Tarun Kumar Technical Blog",
+      "description": "Technical blogs on AI, Machine Learning, Python, and software development",
+      "url": "https://tarun-kumar-ai-portfolio.vercel.app/blogs.html",
+      "author": {
+        "@type": "Person",
+        "name": "Tarun Kumar",
+        "jobTitle": "AI/ML Engineer",
+        "url": "https://tarun-kumar-ai-portfolio.vercel.app/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Tarun Kumar"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="profiles.html" class="nav-link">Profiles</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blogs.html" class="nav-link active">Blogs</a></li>
+                    <li><a href="skills-certificates.html" class="nav-link">Skills & Certificates</a></li>
+<!--                     <li><a href="milestones.html" class="nav-link">Milestones</a></li> -->
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Enhanced Page Hero with Search -->
+        <section class="blog-hero">
+            <div class="hero-background">
+                <div class="neural-network" id="neural-network"></div>
+            </div>
+            <div class="container">
+                <div class="blog-hero-content">
+                    <div class="hero-text">
+                        <span class="code-comment">// Technical Insights & Tutorials</span>
+                        <h1 class="hero-title">
+                            <span class="typing-animation">$ cat technical_blogs.md</span>
+                        </h1>
+                        <p class="hero-description">
+                            Deep dives into AI/ML, Python development, and cutting-edge technology. 
+                            Practical tutorials, project insights, and industry perspectives from real-world experience.
+                        </p>
+                    </div>
+                    
+                    <!-- Search and Filter Section -->
+                    <div class="blog-controls">
+                        <div class="search-container">
+                            <div class="search-box">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="blog-search" placeholder="Search articles, topics, or technologies..." class="search-input">
+                                <button class="search-clear" id="search-clear" style="display: none;">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-container">
+                            <div class="category-filter">
+                                <select id="category-filter" class="filter-select">
+                                    <option value="all">All Categories</option>
+                                    <option value="ai-ml">AI & Machine Learning</option>
+                                    <option value="development">Development</option>
+                                    <option value="tutorial">Tutorials</option>
+                                    <option value="community">Community</option>
+                                    <option value="career">Career</option>
+                                    <option value="mental-health">Mental Health</option>
+                                </select>
+                                <i class="fas fa-chevron-down filter-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Featured Blog -->
+        <section class="featured-blog">
+            <div class="container">
+                <div class="section-header">
+                    <span class="code-comment">// Featured Article</span>
+                    <h2 class="section-title">Editor's Pick</h2>
+                </div>
+                
+                <article class="featured-card" data-category="ai-ml">
+                    <div class="featured-content">
+                        <div class="blog-meta-enhanced">
+                            <div class="meta-left">
+                                <div class="author-info">
+                                    <img src="assets/tarun-photo.jpg" alt="Tarun Kumar" class="author-avatar">
+                                    <span class="author-name">Tarun Kumar</span>
+                                </div>
+                                <span class="meta-divider">���</span>
+                                <span class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    December 15, 2024
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="read-time">
+                                    <i class="fas fa-clock"></i>
+                                    8 min read
+                                </span>
+                            </div>
+                            <div class="meta-right">
+                                <span class="blog-category featured ai-ml">
+                                    <i class="fas fa-star"></i>
+                                    Featured
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="featured-title">How I Built PDFGenie: AI-Powered PDF Assistant</h2>
+                        <p class="featured-description">
+                            Deep dive into creating an intelligent PDF chatbot using OpenAI API, PyPDF2, and text-to-speech capabilities. 
+                            Learn about the complete architecture, technical challenges faced, and innovative solutions implemented 
+                            in building a practical AI application that processes and understands PDF documents.
+                        </p>
+                        
+                        <div class="blog-tags">
+                            <span class="tag ai-ml">
+                                <i class="fas fa-brain"></i>
+                                AI
+                            </span>
+                            <span class="tag ai-ml">
+                                <i class="fas fa-robot"></i>
+                                OpenAI
+                            </span>
+                            <span class="tag development">
+                                <i class="fab fa-python"></i>
+                                Python
+                            </span>
+                            <span class="tag development">
+                                <i class="fas fa-file-pdf"></i>
+                                PDF Processing
+                            </span>
+                        </div>
+                        
+                        <a href="blog-pdfgenie.html" class="read-more-btn ai-ml featured-btn">
+                            <span class="btn-text">Read Full Article</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
+                    
+                    <div class="featured-visual">
+                        <div class="featured-image">
+                            <div class="image-placeholder">
+                                <div class="code-animation">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <div class="code-lines">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <span class="image-label">PDFGenie AI</span>
+                            </div>
+                            <div class="image-overlay"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <i class="fas fa-newspaper"></i>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Enhanced Blog Grid -->
+        <section class="blogs-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="code-comment">// Recent Publications</span>
+                    <h2 class="section-title">Latest Articles</h2>
+                </div>
+                
+                <div class="blogs-grid" id="blogs-grid">
+                    <article class="blog-card enhanced" data-category="community">
+                        <div class="blog-image">
+                            <div class="image-placeholder">
+                                <div class="icon-animation">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                            </div>
+                            <div class="image-overlay">
+                                <span class="category-badge community">
+                                    <i class="fas fa-users"></i>
+                                    Event Management
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-content">
+                            <div class="blog-meta-enhanced">
+                                <div class="author-info">
+                                    <img src="assets/tarun-photo.jpg" alt="Tarun Kumar" class="author-avatar">
+                                    <span class="author-name">Tarun Kumar</span>
+                                </div>
+                                <span class="meta-divider">•</span>
+                                <span class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Dec 10, 2024
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="read-time">
+                                    <i class="fas fa-clock"></i>
+                                    6 min
+                                </span>
+                            </div>
+                            
+                            <h3 class="blog-title">HackFinity 1.0: Behind the Scenes of Organizing a 100+ Participant Hackathon</h3>
+                            <p class="blog-excerpt">
+                                A comprehensive look at the planning, execution, and lessons learned from organizing one of 
+                                GL Bajaj's biggest hackathons. From initial conception to successful execution.
+                            </p>
+                            
+                            <div class="blog-tags">
+                                <span class="tag community">Event Management</span>
+                                <span class="tag community">Leadership</span>
+                                <span class="tag community">Hackathon</span>
+                            </div>
+                            
+                            <a href="#" class="read-more-btn community">
+                                <span class="btn-text">Read More</span>
+                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card enhanced" data-category="ai-ml">
+                        <div class="blog-image">
+                            <div class="image-placeholder">
+                                <div class="icon-animation">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                            </div>
+                            <div class="image-overlay">
+                                <span class="category-badge ai-ml">
+                                    <i class="fas fa-brain"></i>
+                                    AI/ML
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-content">
+                            <div class="blog-meta-enhanced">
+                                <div class="author-info">
+                                    <img src="assets/tarun-photo.jpg" alt="Tarun Kumar" class="author-avatar">
+                                    <span class="author-name">Tarun Kumar</span>
+                                </div>
+                                <span class="meta-divider">•</span>
+                                <span class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Nov 28, 2024
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="read-time">
+                                    <i class="fas fa-clock"></i>
+                                    10 min
+                                </span>
+                            </div>
+                            
+                            <h3 class="blog-title">Prompt Engineering 101: Mastering AI Conversations</h3>
+                            <p class="blog-excerpt">
+                                Essential techniques for crafting effective prompts, optimizing AI model responses, and building 
+                                better human-AI interactions. Practical examples and best practices included.
+                            </p>
+                            
+                            <div class="blog-tags">
+                                <span class="tag ai-ml">Prompt Engineering</span>
+                                <span class="tag ai-ml">AI</span>
+                                <span class="tag ai-ml">GPT</span>
+                            </div>
+                            
+                            <a href="#" class="read-more-btn ai-ml">
+                                <span class="btn-text">Read More</span>
+                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card enhanced" data-category="mental-health">
+                        <div class="blog-image">
+                            <div class="image-placeholder">
+                                <div class="icon-animation">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="image-overlay">
+                                <span class="category-badge mental-health">
+                                    <i class="fas fa-heart-pulse"></i>
+                                    Mental Health
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-content">
+                            <div class="blog-meta-enhanced">
+                                <div class="author-info">
+                                    <img src="assets/tarun-photo.jpg" alt="Tarun Kumar" class="author-avatar">
+                                    <span class="author-name">Tarun Kumar</span>
+                                </div>
+                                <span class="meta-divider">•</span>
+                                <span class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Oct 15, 2024
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="read-time">
+                                    <i class="fas fa-clock"></i>
+                                    7 min
+                                </span>
+                            </div>
+                            
+                            <h3 class="blog-title">MyTherapist AI: Building Emotion-Aware Chatbots for Mental Wellness</h3>
+                            <p class="blog-excerpt">
+                                Exploring the intersection of AI and mental health support. How to create empathetic chatbots 
+                                using sentiment analysis and psychological frameworks for wellness.
+                            </p>
+                            
+                            <div class="blog-tags">
+                                <span class="tag mental-health">Mental Health</span>
+                                <span class="tag ai-ml">AI Ethics</span>
+                                <span class="tag development">Chatbots</span>
+                            </div>
+                            
+                            <a href="#" class="read-more-btn mental-health">
+                                <span class="btn-text">Read More</span>
+                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card enhanced" data-category="community">
+                        <div class="blog-image">
+                            <div class="image-placeholder">
+                                <div class="icon-animation">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                            <div class="image-overlay">
+                                <span class="category-badge community">
+                                    <i class="fas fa-users"></i>
+                                    Community
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-content">
+                            <div class="blog-meta-enhanced">
+                                <div class="author-info">
+                                    <img src="assets/tarun-photo.jpg" alt="Tarun Kumar" class="author-avatar">
+                                    <span class="author-name">Tarun Kumar</span>
+                                </div>
+                                <span class="meta-divider">•</span>
+                                <span class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Sep 22, 2024
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="read-time">
+                                    <i class="fas fa-clock"></i>
+                                    5 min
+                                </span>
+                            </div>
+                            
+                            <h3 class="blog-title">Building Tech Communities: Lessons from 0Day Alliance Leadership</h3>
+                            <p class="blog-excerpt">
+                                Insights on growing and managing developer communities, fostering collaboration, and creating 
+                                impactful learning environments in the technology space.
+                            </p>
+                            
+                            <div class="blog-tags">
+                                <span class="tag community">Community Building</span>
+                                <span class="tag community">Leadership</span>
+                                <span class="tag development">Tech</span>
+                            </div>
+                            
+                            <a href="#" class="read-more-btn community">
+                                <span class="btn-text">Read More</span>
+                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card enhanced" data-category="career">
+                        <div class="blog-image">
+                            <div class="image-placeholder">
+                                <div class="icon-animation">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                            </div>
+                            <div class="image-overlay">
+                                <span class="category-badge career">
+                                    <i class="fas fa-briefcase"></i>
+                                    Career
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-content">
+                            <div class="blog-meta-enhanced">
+                                <div class="author-info">
+                                    <img src="assets/tarun-photo.jpg" alt="Tarun Kumar" class="author-avatar">
+                                    <span class="author-name">Tarun Kumar</span>
+                                </div>
+                                <span class="meta-divider">•</span>
+                                <span class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Aug 18, 2024
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="read-time">
+                                    <i class="fas fa-clock"></i>
+                                    8 min
+                                </span>
+                            </div>
+                            
+                            <h3 class="blog-title">From Frontend to AI: My Journey in Technology</h3>
+                            <p class="blog-excerpt">
+                                Personal story of transitioning from frontend development to AI/ML specialization. Challenges faced, 
+                                skills learned, and practical advice for aspiring developers.
+                            </p>
+                            
+                            <div class="blog-tags">
+                                <span class="tag career">Career</span>
+                                <span class="tag career">Personal Story</span>
+                                <span class="tag development">Development</span>
+                            </div>
+                            
+                            <a href="#" class="read-more-btn career">
+                                <span class="btn-text">Read More</span>
+                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card enhanced" data-category="tutorial">
+                        <div class="blog-image">
+                            <div class="image-placeholder">
+                                <div class="icon-animation">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                            </div>
+                            <div class="image-overlay">
+                                <span class="category-badge tutorial">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    Tutorial
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-content">
+                            <div class="blog-meta-enhanced">
+                                <div class="author-info">
+                                    <img src="assets/tarun-photo.jpg" alt="Tarun Kumar" class="author-avatar">
+                                    <span class="author-name">Tarun Kumar</span>
+                                </div>
+                                <span class="meta-divider">•</span>
+                                <span class="blog-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Jul 12, 2024
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="read-time">
+                                    <i class="fas fa-clock"></i>
+                                    12 min
+                                </span>
+                            </div>
+                            
+                            <h3 class="blog-title">Building Your First AI Chatbot: A Complete Beginner's Guide</h3>
+                            <p class="blog-excerpt">
+                                Step-by-step tutorial for creating a simple chatbot using Python and OpenAI API. Perfect for students 
+                                and beginners starting their AI development journey.
+                            </p>
+                            
+                            <div class="blog-tags">
+                                <span class="tag tutorial">Tutorial</span>
+                                <span class="tag tutorial">Beginner</span>
+                                <span class="tag development">Python</span>
+                                <span class="tag ai-ml">AI</span>
+                            </div>
+                            
+                            <a href="#" class="read-more-btn tutorial">
+                                <span class="btn-text">Read More</span>
+                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- No Results Message -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <div class="no-results-content">
+                        <i class="fas fa-search"></i>
+                        <h3>No articles found</h3>
+                        <p>Try adjusting your search terms or category filter</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <i class="fas fa-folder-open"></i>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Enhanced Categories Section -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="code-comment">// Explore Content by Category</span>
+                    <h2 class="section-title">Browse Topics</h2>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card enhanced ai-ml" data-category="ai-ml">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-brain"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="post-count">
+                                <span class="count-number">8</span>
+                                <span class="count-label">posts</span>
+                            </div>
+                        </div>
+                        <h3 class="category-title">AI & Machine Learning</h3>
+                        <p class="category-description">
+                            Latest trends, tutorials, and insights in artificial intelligence and machine learning development
+                        </p>
+                        <div class="category-tags">
+                            <span class="mini-tag">Neural Networks</span>
+                            <span class="mini-tag">Deep Learning</span>
+                            <span class="mini-tag">NLP</span>
+                        </div>
+                        <div class="category-overlay"></div>
+                    </div>
+
+                    <div class="category-card enhanced development" data-category="development">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-code"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="post-count">
+                                <span class="count-number">6</span>
+                                <span class="count-label">posts</span>
+                            </div>
+                        </div>
+                        <h3 class="category-title">Programming & Development</h3>
+                        <p class="category-description">
+                            Coding tutorials, best practices, and development frameworks for modern software engineering
+                        </p>
+                        <div class="category-tags">
+                            <span class="mini-tag">Python</span>
+                            <span class="mini-tag">APIs</span>
+                            <span class="mini-tag">Frameworks</span>
+                        </div>
+                        <div class="category-overlay"></div>
+                    </div>
+
+                    <div class="category-card enhanced community" data-category="community">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-users"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="post-count">
+                                <span class="count-number">4</span>
+                                <span class="count-label">posts</span>
+                            </div>
+                        </div>
+                        <h3 class="category-title">Community & Leadership</h3>
+                        <p class="category-description">
+                            Building communities, leadership insights, event management, and fostering collaboration
+                        </p>
+                        <div class="category-tags">
+                            <span class="mini-tag">Events</span>
+                            <span class="mini-tag">Mentoring</span>
+                            <span class="mini-tag">Networking</span>
+                        </div>
+                        <div class="category-overlay"></div>
+                    </div>
+
+                    <div class="category-card enhanced career" data-category="career">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="post-count">
+                                <span class="count-number">5</span>
+                                <span class="count-label">posts</span>
+                            </div>
+                        </div>
+                        <h3 class="category-title">Career & Education</h3>
+                        <p class="category-description">
+                            Career advice, educational resources, professional development, and industry insights
+                        </p>
+                        <div class="category-tags">
+                            <span class="mini-tag">Skills</span>
+                            <span class="mini-tag">Growth</span>
+                            <span class="mini-tag">Learning</span>
+                        </div>
+                        <div class="category-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Enhanced Newsletter Section -->
+        <section class="newsletter-section enhanced">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-visual">
+                        <div class="newsletter-icon">
+                            <i class="fas fa-paper-plane"></i>
+                            <div class="icon-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter-text">
+                        <span class="code-comment">// Join the Community</span>
+                        <h2 class="newsletter-title">Join 500+ AI & Tech Enthusiasts</h2>
+                        <p class="newsletter-description">
+                            Get exclusive access to in-depth technical tutorials, AI industry insights, and early access to new content. 
+                            No spam, just premium quality content delivered weekly.
+                        </p>
+                        
+                        <div class="newsletter-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-check"></i>
+                                <span>Weekly AI & Tech Insights</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check"></i>
+                                <span>Exclusive Tutorials</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check"></i>
+                                <span>Early Access to Content</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter-form">
+                        <form id="newsletter-form" onsubmit="handleNewsletterSubmit(event)" class="newsletter-form-container">
+                            <div class="input-group enhanced">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <input type="email" name="email" placeholder="Enter your email address" required class="email-input">
+                                </div>
+                                <button type="submit" class="subscribe-btn enhanced">
+                                    <span class="btn-text">Subscribe</span>
+                                    <i class="fas fa-arrow-right btn-icon"></i>
+                                    <div class="btn-glow"></div>
+                                </button>
+                            </div>
+                            <p class="newsletter-note">
+                                <i class="fas fa-shield-alt"></i>
+                                100% secure. Unsubscribe anytime.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced CTA Section -->
+        <section class="cta-section enhanced">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-icon">
+                        <i class="fas fa-handshake"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h2 class="cta-title">Want to Collaborate on Content?</h2>
+                    <p class="cta-description">
+                        Interested in guest posts, technical interviews, or content partnerships? 
+                        Let's create something valuable together for the developer community.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary enhanced">
+                            <i class="fas fa-edit"></i>
+                            <span>Start Collaboration</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="services.html" class="btn btn-secondary enhanced">
+                            <i class="fas fa-briefcase"></i>
+                            <span>View Services</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer enhanced">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h3 class="brand-name">Tarun Kumar</h3>
+                        <p class="brand-tagline">AI/ML Engineer & Technical Writer</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Content</h4>
+                        <ul class="footer-list">
+                            <li><a href="blogs.html">Technical Blogs</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="certificates.html">Certificates</a></li>
+                            <li><a href="skills-certificates.html">Skills & Certificates</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 class="footer-title">Connect</h4>
+                        <ul class="footer-list">
+                            <li>
+                                <a href="mailto:imtarunchaudharyy@gmail.com" class="footer-contact">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>imtarunchaudharyy@gmail.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+919027806285" class="footer-contact">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+91-9027806285</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer-contact">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Mathura, India</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 class="footer-title">Social</h4>
+                        <div class="social-links enhanced">
+                            <a href="https://linkedin.com/in/iamtarunchaudhary" target="_blank" class="social-link" data-tooltip="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/chaudharytarunkumar" target="_blank" class="social-link" data-tooltip="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://kaggle.com/tarunkumar" target="_blank" class="social-link" data-tooltip="Kaggle">
+                                <i class="fab fa-kaggle"></i>
+                            </a>
+                            <a href="mailto:imtarunchaudharyy@gmail.com" class="social-link" data-tooltip="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2025 Tarun Kumar. All rights reserved.</p>
+                    <p class="footer-note">Building the future with AI, one line of code at a time.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+    <script>
+        // Blog Search and Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('blog-search');
+            const categoryFilter = document.getElementById('category-filter');
+            const searchClear = document.getElementById('search-clear');
+            const blogsGrid = document.getElementById('blogs-grid');
+            const noResults = document.getElementById('no-results');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            function filterBlogs() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+                let visibleCount = 0;
+
+                blogCards.forEach(card => {
+                    const title = card.querySelector('.blog-title').textContent.toLowerCase();
+                    const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+                    const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                    const cardCategory = card.getAttribute('data-category');
+
+                    const matchesSearch = searchTerm === '' || title.includes(searchTerm) || excerpt.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
+                    const matchesCategory = selectedCategory === 'all' || cardCategory === selectedCategory;
+
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+                searchClear.style.display = searchTerm ? 'block' : 'none';
+            }
+
+            searchInput.addEventListener('input', filterBlogs);
+            categoryFilter.addEventListener('change', filterBlogs);
+            
+            searchClear.addEventListener('click', function() {
+                searchInput.value = '';
+                filterBlogs();
+            });
+
+            // Category card clicks
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    categoryFilter.value = category;
+                    filterBlogs();
+                    document.querySelector('.blogs-section').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+
+        // Newsletter form handler
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const email = event.target.email.value;
+            
+            // Add loading state
+            const submitBtn = event.target.querySelector('.subscribe-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+            submitBtn.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                alert(`Thank you for subscribing with ${email}! You'll receive our next newsletter soon.`);
+                event.target.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

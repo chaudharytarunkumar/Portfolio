@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Tarun Kumar - AI/ML Engineer">
+    <title>Contact - Tarun Kumar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .contact-text small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .resume-download {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-full-width {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .contact-details .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .availability p {
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Cyber-Dark Contact Form Card Layout */
+        .contact-form-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .contact-form-card {
+            background: linear-gradient(145deg, rgba(16, 16, 16, 0.95), rgba(26, 26, 26, 0.9));
+            border: 2px solid rgba(255, 255, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(255, 255, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 0, 0.2);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ffff00, transparent);
+            opacity: 0.7;
+        }
+
+        .contact-form-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 0, 0.1), transparent);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.7;
+                transform: scale(1.005);
+            }
+        }
+
+        .form-card-title {
+            color: #ffff00;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+            position: relative;
+        }
+
+        .form-card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffff00, transparent);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .contact-form label {
+            display: block;
+            color: #ffff00;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid rgba(85, 85, 68, 0.4);
+            border-radius: 12px;
+            background: rgba(20, 20, 20, 0.8);
+            color: #f0f0f0;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffff00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #ffff00;
+            box-shadow:
+                0 0 0 4px rgba(255, 255, 0, 0.2),
+                0 0 20px rgba(255, 255, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 0, 0.05);
+            background: rgba(25, 25, 25, 0.95);
+            transform: translateY(-2px);
+        }
+
+        .contact-form input:hover,
+        .contact-form select:hover,
+        .contact-form textarea:hover {
+            border-color: rgba(255, 255, 0, 0.7);
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.2);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(240, 240, 240, 0.5);
+            font-style: italic;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 140px;
+            font-family: inherit;
+        }
+
+        /* Enhanced validation message styling */
+        .form-error {
+            color: #ff4444;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 0.75rem;
+            margin-bottom: 0;
+            padding-left: 0.5rem;
+            display: none;
+            line-height: 1.4;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .form-error.show {
+            display: block;
+            animation: errorSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes errorSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced success message styling */
+        .form-success {
+            display: none;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+            border: 2px solid #22c55e;
+            color: #22c55e;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow:
+                0 0 30px rgba(34, 197, 94, 0.3),
+                inset 0 1px 0 rgba(34, 197, 94, 0.2);
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+
+        .form-success.show {
+            display: block;
+            animation: successGlow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes successGlow {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(34, 197, 94, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .form-success i {
+            margin-right: 0.75rem;
+            font-size: 1.4rem;
+        }
+
+        .contact-form .btn {
+            background: linear-gradient(135deg, #ffff00, #ffd700);
+            color: #000;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow:
+                0 8px 25px rgba(255, 255, 0, 0.3),
+                0 0 20px rgba(255, 255, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .contact-form .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .contact-form .btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-form .btn:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 35px rgba(255, 255, 0, 0.4),
+                0 0 30px rgba(255, 255, 0, 0.3);
+            background: linear-gradient(135deg, #ffd700, #ffff00);
+        }
+
+        .contact-form .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile responsive design */
+        @media (max-width: 768px) {
+            .contact-form-card {
+                padding: 2rem;
+                margin: 1rem;
+                border-radius: 16px;
+            }
+
+            .form-card-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-form input,
+            .contact-form select,
+            .contact-form textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 1rem 1.2rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-form label {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .contact-form .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .form-error {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form-card {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+
+            .form-card-title {
+                font-size: 1.3rem;
+            }
+
+            .contact-form textarea {
+                min-height: 120px;
+            }
+        }
+
+        /* Grid layout adjustment for card */
+        .contact-grid {
+            display: block;
+        }
+
+        .contact-info-section {
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="profiles.html" class="nav-link">Profiles</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+                    <li><a href="skills-certificates.html" class="nav-link">Skills & Certificates</a></li>
+<!--                     <li><a href="milestones.html" class="nav-link">Milestones</a></li> -->
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Get In Touch</h1>
+                    <p class="page-subtitle">Let's discuss your next AI/ML project and bring your ideas to life</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-section">
+                        <div class="contact-form-card">
+                            <h2 class="form-card-title">Send Me a Message</h2>
+                            <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                <div class="form-error" id="name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                                <div class="form-error" id="email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject-category">Subject Category</label>
+                                <select id="subject-category" name="subject-category">
+                                    <option value="">Select a category...</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Project Collaboration">Project Collaboration</option>
+                                    <option value="Open Source Contribution">Open Source Contribution</option>
+                                    <option value="Philosophy Discussion">Philosophy Discussion</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" placeholder="Subject will auto-fill from category above, or enter custom subject" required>
+                                <div class="form-error" id="subject-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project, requirements, or any questions you have..."></textarea>
+                                <div class="form-error" id="message-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </div>
+                            </form>
+                            <div class="form-success" id="form-success">
+                                <i class="fas fa-check-circle"></i>
+                                <p>Message sent successfully!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="contact-info-section">
+                        <div class="contact-info">
+                            <h2>Contact Information</h2>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Email</h3>
+                                        <a href="mailto:imtarunchaudharyy@gmail.com">imtarunchaudharyy@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Phone</h3>
+                                        <a href="tel:+919027806285">+91-9027806285</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Location</h3>
+                                        <span>Mathura, India</span>
+                                        <small>Open to remote work and relocation opportunities</small>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Response Time</h3>
+                                        <span>Typically respond within 24 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-links">
+                                <h3>Connect With Me</h3>
+                                <div class="social-buttons">
+                                    <a href="https://linkedin.com/in/iamtarunchaudhary" target="_blank" class="social-btn linkedin">
+                                        <i class="fab fa-linkedin"></i>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a href="https://github.com/chaudharytarunkumar" target="_blank" class="social-btn github">
+                                        <i class="fab fa-github"></i>
+                                        <span>GitHub</span>
+                                    </a>
+                                    <a href="mailto:imtarunchaudharyy@gmail.com" class="social-btn email">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Email</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="resume-download">
+                                <a href="assets/resume.pdf" download="Tarun_Kumar_AI_ML_Engineer_Resume.pdf" class="btn btn-secondary btn-full-width">
+                                    <i class="fas fa-download"></i>
+                                    Download Resume
+                                </a>
+                            </div>
+
+                            <div class="availability">
+                                <h3>Current Availability</h3>
+                                <div class="availability-status">
+                                    <div class="status-indicator available"></div>
+                                    <span>Available for new projects</span>
+                                </div>
+                                <p>Currently available for freelance projects, consulting, and full-time AI/ML development opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Map -->
+        <section class="location-map">
+            <div class="container">
+                <h2 class="section-title">My Location</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224359.7553060654!2d77.30429384843751!3d27.49670485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39740d262a9a8b47%3A0x8c86a7d53e5ba68e!2sMathura%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1706708800000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay">
+                        <div class="location-info">
+                            <h3>Mathura, India</h3>
+                            <p>Open to remote work and relocation opportunities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What types of AI/ML projects do you work on?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Chatbots, NLP, document processing, emotion detection, conversational AI, AI-integrated web development.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What's your typical project timeline?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Varies by complexity; 1–2 weeks for simple projects, 4–8 weeks for complex systems.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you work with teams or solo clients?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Both, with experience in agile collaboration.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What technologies do you use?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Python, TensorFlow, HuggingFace, OpenAI API, Flask, JavaScript, HTML/CSS, and modern frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hire Me CTA -->
+        <section class="hire-cta">
+            <div class="container">
+                <div class="hire-cta-content">
+                    <div class="hire-text">
+                        <h2>Ready to Start Your AI Project?</h2>
+                        <p>Let's turn your requirements into reality with cutting-edge AI/ML solutions.</p>
+                    </div>
+                    <div class="hire-action">
+                        <button class="btn btn-primary btn-large" onclick="openHireModal()">
+                            <i class="fas fa-rocket"></i>
+                            Hire Me Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hire Me Modal -->
+    <div class="modal" id="hire-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Let's Work Together!</h3>
+                <button class="modal-close" onclick="closeHireModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="hire-avatar">
+                    <div class="avatar-animation">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <p>Ready to bring AI/ML solutions to your project? Let's discuss how I can help you build intelligent systems that drive results.</p>
+                <div class="hire-actions">
+                    <a href="mailto:imtarunchaudharyy@gmail.com?subject=Hiring Inquiry - AI/ML Project&body=Hi Tarun,%0D%0A%0D%0AI'm interested in discussing a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A-%0D%0A-%0D%0A%0D%0ABest regards," class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                    <a href="assets/resume.pdf" download="Tarun_Kumar_AI_ML_Engineer_Resume.pdf" class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Tarun Kumar. All rights reserved.</p>
+                    <p>AI/ML Engineer | Mathura, India</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:imtarunchaudharyy@gmail.com">imtarunchaudharyy@gmail.com</a>
+                    <span>|</span>
+                    <a href="tel:+919027806285">+91-9027806285</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+    <script>
+        // Enhanced contact form functionality with improved auto-fill behavior
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+
+                // Add visual feedback to the input field
+                const inputElement = document.getElementById(fieldId);
+                if (inputElement) {
+                    inputElement.style.borderColor = '#ff4444';
+                }
+            }
+        }
+
+        function hideError(fieldId) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            if (errorElement) {
+                errorElement.classList.remove('show');
+
+                // Reset input field border
+                const inputElement = document.getElementById(fieldId);
+                if (inputElement) {
+                    inputElement.style.borderColor = '';
+                }
+            }
+        }
+
+        function hideAllErrors() {
+            const errorElements = document.querySelectorAll('.form-error');
+            errorElements.forEach(element => {
+                element.classList.remove('show');
+            });
+
+            // Reset all input field borders
+            const inputs = document.querySelectorAll('#contact-form input, #contact-form textarea, #contact-form select');
+            inputs.forEach(input => {
+                input.style.borderColor = '';
+            });
+        }
+
+        function autoFillSubjectFromCategory() {
+            const categorySelect = document.getElementById('subject-category');
+            const subjectInput = document.getElementById('subject');
+
+            // Auto-fill subject when Send button is pressed
+            if (categorySelect.value && (!subjectInput.value.trim() ||
+                ['General Inquiry', 'Project Collaboration', 'Open Source Contribution', 'Philosophy Discussion'].includes(subjectInput.value.trim()))) {
+                subjectInput.value = categorySelect.value;
+            }
+        }
+
+        function validateForm() {
+            let isValid = true;
+            hideAllErrors();
+
+            // Validate name
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                showError('name', 'Please enter your full name');
+                isValid = false;
+            } else if (name.length < 2) {
+                showError('name', 'Name must be at least 2 characters long');
+                isValid = false;
+            }
+
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                showError('email', 'Email address is required');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError('email', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Auto-fill subject from category if needed
+            autoFillSubjectFromCategory();
+
+            // Validate subject
+            const subject = document.getElementById('subject').value.trim();
+            if (!subject) {
+                showError('subject', 'Subject is required');
+                isValid = false;
+            } else if (subject.length < 3) {
+                showError('subject', 'Subject must be at least 3 characters long');
+                isValid = false;
+            }
+
+            // Validate message
+            const message = document.getElementById('message').value.trim();
+            if (!message) {
+                showError('message', 'Please enter your message');
+                isValid = false;
+            } else if (message.length < 15) {
+                showError('message', 'Message must be at least 15 characters long');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showSuccessMessage() {
+            const successElement = document.getElementById('form-success');
+            const formElement = document.getElementById('contact-form');
+
+            if (successElement && formElement) {
+                // Hide form and show success message
+                formElement.style.opacity = '0.3';
+                formElement.style.pointerEvents = 'none';
+                successElement.classList.add('show');
+
+                // Scroll to success message
+                successElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Reset form after 4 seconds
+                setTimeout(() => {
+                    formElement.reset();
+                    formElement.style.opacity = '1';
+                    formElement.style.pointerEvents = 'auto';
+                    successElement.classList.remove('show');
+                    hideAllErrors();
+                }, 4000);
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Show loading state
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            // Validate form
+            setTimeout(() => {
+                if (!validateForm()) {
+                    // Reset button state
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    return false;
+                }
+
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    category: document.getElementById('subject-category').value,
+                    subject: document.getElementById('subject').value.trim(),
+                    message: document.getElementById('message').value.trim()
+                };
+
+                // Create mailto link with form data
+                const emailBody = `Name: ${formData.name}%0D%0A` +
+                                `Email: ${formData.email}%0D%0A` +
+                                `Category: ${formData.category || 'Not specified'}%0D%0A%0D%0A` +
+                                `Message:%0D%0A${formData.message}`;
+
+                const mailtoLink = `mailto:imtarunchaudharyy@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
+
+                // Open email client
+                window.location.href = mailtoLink;
+
+                // Reset button and show success message
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                setTimeout(() => {
+                    showSuccessMessage();
+                }, 300);
+            }, 300);
+
+            return false;
+        }
+
+        // Add real-time validation and improved UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('#contact-form input, #contact-form textarea');
+            const categorySelect = document.getElementById('subject-category');
+
+            // Real-time validation for inputs
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const fieldId = this.id;
+                    const value = this.value.trim();
+
+                    // Hide error when user starts typing valid content
+                    if (value.length > 0) {
+                        if (fieldId === 'email') {
+                            if (validateEmail(value)) {
+                                hideError(fieldId);
+                            }
+                        } else {
+                            hideError(fieldId);
+                        }
+                    }
+                });
+
+                // Focus effect
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+
+                input.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('focused');
+                });
+            });
+
+            // Category selection helper
+            if (categorySelect) {
+                categorySelect.addEventListener('change', function() {
+                    const subjectInput = document.getElementById('subject');
+                    if (this.value && subjectInput) {
+                        // Show hint that category is selected
+                        subjectInput.placeholder = `Category: ${this.value} (will auto-fill when you send)`;
+
+                        // Add visual feedback
+                        this.style.borderColor = 'rgba(255, 255, 0, 0.8)';
+                        this.style.boxShadow = '0 0 15px rgba(255, 255, 0, 0.3)';
+                    } else if (subjectInput) {
+                        subjectInput.placeholder = 'Subject will auto-fill from category above, or enter custom subject';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

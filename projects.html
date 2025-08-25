@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Tarun Kumar - AI/ML Engineer">
+    <title>Projects - Tarun Kumar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Projects Page Specific Styling */
+
+        /* Reduce spacing between header and filters */
+        .page-hero {
+            padding: 6rem 0 2rem;
+        }
+
+        /* Project Filters Section */
+        .project-filters {
+            padding: 1.875rem 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--accent-primary);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .filter-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-secondary);
+            color: var(--accent-secondary);
+            padding: 0.8rem 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background-clip: padding-box;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--accent-secondary), transparent);
+            transition: left 0.5s ease;
+            opacity: 0.3;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover {
+            background: var(--accent-secondary);
+            color: var(--bg-primary);
+            box-shadow: 0 0 25px var(--accent-secondary);
+            transform: translateY(-3px);
+            border-color: var(--accent-secondary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px var(--accent-primary);
+            text-shadow: none;
+        }
+
+        .filter-btn.active::before {
+            display: none;
+        }
+
+        /* Projects Grid Section */
+        .projects-grid {
+            padding: 2rem 0 4rem;
+            background: var(--bg-primary);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 1rem;
+            justify-items: center;
+        }
+
+        .projects-grid .container {
+            max-width: 109.3125rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary)) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow-medium);
+            border-color: var(--accent-primary);
+        }
+
+        .project-image {
+            background: var(--bg-tertiary);
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            font-size: 2rem;
+            position: relative;
+            box-shadow: 0 0 20px var(--shadow-light);
+            z-index: 2;
+        }
+
+        .project-icon::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover .project-icon::after {
+            opacity: 0.4;
+            animation: icon-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes icon-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .project-tech .tech-tag {
+            background: var(--bg-primary);
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-tech .tech-tag:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            box-shadow: 0 0 15px var(--accent-primary);
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            color: var(--accent-secondary);
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px currentColor;
+            flex: 1;
+        }
+
+        .project-date {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            background: var(--bg-primary);
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            margin-left: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-description strong {
+            color: var(--accent-primary);
+            text-shadow: 0 0 5px currentColor;
+        }
+
+        .project-impact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-metric {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .impact-metric:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px var(--shadow-light);
+        }
+
+        .impact-metric i {
+            color: var(--accent-primary);
+            font-size: 1rem;
+        }
+
+        .impact-metric span {
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-features {
+            margin-bottom: 2rem;
+        }
+
+        .project-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .project-features li {
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .project-features li i {
+            color: var(--accent-primary);
+            font-size: 0.8rem;
+            width: 12px;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .project-actions .btn {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .project-actions .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: var(--bg-tertiary);
+            border-color: var(--border-color);
+            color: var(--text-muted);
+        }
+
+        .project-actions .btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Project Demo Modal */
+        .project-modal-content {
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .demo-container {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .demo-placeholder {
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+        }
+
+        .demo-icon {
+            font-size: 4rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-card {
+                max-width: 100%;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+            }
+
+            .project-date {
+                margin-left: 0;
+                align-self: flex-start;
+            }
+
+            .project-impact {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .project-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-container {
+                gap: 1rem;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .filter-btn {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="profiles.html" class="nav-link">Profiles</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+                    <li><a href="skills-certificates.html" class="nav-link">Skills & Certificates</a></li>
+<!--                     <li><a href="milestones.html" class="nav-link">Milestones</a></li> -->
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">My Projects</h1>
+                    <p class="page-subtitle">Innovative AI/ML solutions that solve real-world problems</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Filters -->
+        <section class="project-filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+                    <button class="filter-btn" data-filter="chatbot">Chatbots</button>
+                    <button class="filter-btn" data-filter="nlp">NLP</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid">
+            <div class="container">
+                <div class="projects-container">
+                    <!-- PDFGenie Chatbot -->
+                    <div class="project-card" data-category="ai-ml chatbot nlp">
+                        <div class="project-image">
+                            <div class="project-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">OpenAI</span>
+                                    <span class="tech-tag">PyPDF2</span>
+                                    <span class="tech-tag">TTS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">PDFGenie Chatbot</h3>
+                                <div class="project-date">January 2025</div>
+                            </div>
+                            <p class="project-description">
+                                AI-powered PDF assistant that <strong>reduces document analysis time by 80%</strong> through intelligent summarization,
+                                interactive chat, and text-to-speech conversion. Integrated with OpenAI API for enhanced document comprehension.
+                            </p>
+                            <div class="project-impact">
+                                <div class="impact-metric">
+                                    <i class="fas fa-clock"></i>
+                                    <span>80% faster document analysis</span>
+                                </div>
+                                <div class="impact-metric">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Intelligent AI summarization</span>
+                                </div>
+                                <div class="impact-metric">
+                                    <i class="fas fa-volume-up"></i>
+                                    <span>Text-to-speech accessibility</span>
+                                </div>
+                            </div>
+                            <div class="project-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> PDF text extraction and processing</li>
+                                    <li><i class="fas fa-check"></i> Intelligent document summarization</li>
+                                    <li><i class="fas fa-check"></i> Interactive chat interface</li>
+                                    <li><i class="fas fa-check"></i> Text-to-speech conversion</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/chaudharytarunkumar/PDFGenie.git" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                                <a href="https://github.com/chaudharytarunkumar/PDFGenie.git#demo" target="_blank" class="btn btn-secondary">
+                                    <i class="fas fa-play"></i>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MyTherapist Chatbot -->
+                    <div class="project-card" data-category="ai-ml chatbot nlp">
+                        <div class="project-image">
+                            <div class="project-icon">
+                                <i class="fas fa-heart-pulse"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">HuggingFace</span>
+                                    <span class="tech-tag">Streamlit</span>
+                                    <span class="tech-tag">NLP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">MyTherapist Chatbot</h3>
+                                <div class="project-date">December 2024</div>
+                            </div>
+                            <p class="project-description">
+                                AI mental health chatbot with <strong>95% emotion detection accuracy</strong> using HuggingFace transformers and TextBlob.
+                                Provides personalized supportive conversations that improve user mood by an average of 40%.
+                            </p>
+                            <div class="project-impact">
+                                <div class="impact-metric">
+                                    <i class="fas fa-heart"></i>
+                                    <span>95% emotion detection accuracy</span>
+                                </div>
+                                <div class="impact-metric">
+                                    <i class="fas fa-smile"></i>
+                                    <span>40% mood improvement rate</span>
+                                </div>
+                                <div class="impact-metric">
+                                    <i class="fas fa-users"></i>
+                                    <span>24/7 mental health support</span>
+                                </div>
+                            </div>
+                            <div class="project-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Emotion detection and analysis</li>
+                                    <li><i class="fas fa-check"></i> Supportive conversation interface</li>
+                                    <li><i class="fas fa-check"></i> Motivational quote generation</li>
+                                    <li><i class="fas fa-check"></i> Web deployment via ngrok</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/chaudharytarunkumar/MyTherapist-Chatbot.git" target="_blank" class="btn btn-primary">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                                <a href="https://github.com/chaudharytarunkumar/MyTherapist-Chatbot.git#demo" target="_blank" class="btn btn-secondary">
+                                    <i class="fas fa-play"></i>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Learning Assistant -->
+                    <div class="project-card" data-category="ai-ml nlp">
+                        <div class="project-image">
+                            <div class="project-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">Scikit-Learn</span>
+                                    <span class="tech-tag">Flask</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">AI Learning Assistant</h3>
+                                <div class="project-date">In Development</div>
+                            </div>
+                            <p class="project-description">
+                                Personalized AI tutor that <strong>adapts to individual learning styles</strong> and improves learning efficiency by 60%.
+                                Features adaptive question generation, progress tracking, and personalized study recommendations.
+                            </p>
+                            <div class="project-impact">
+                                <div class="impact-metric">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>60% improved learning efficiency</span>
+                                </div>
+                                <div class="impact-metric">
+                                    <i class="fas fa-user-cog"></i>
+                                    <span>Personalized learning paths</span>
+                                </div>
+                                <div class="impact-metric">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Real-time progress tracking</span>
+                                </div>
+                            </div>
+                            <div class="project-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Adaptive learning algorithm</li>
+                                    <li><i class="fas fa-check"></i> Personalized question generation</li>
+                                    <li><i class="fas fa-check"></i> Progress analytics dashboard</li>
+                                    <li><i class="fas fa-check"></i> Multi-subject support</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn btn-primary" disabled>
+                                    <i class="fas fa-clock"></i>
+                                    Coming Soon
+                                </button>
+                                <a href="mailto:imtarunchaudharyy@gmail.com?subject=AI Learning Assistant Beta" class="btn btn-secondary">
+                                    <i class="fas fa-envelope"></i>
+                                    Beta Access
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Demo Modal -->
+        <div class="modal project-modal" id="project-modal">
+            <div class="modal-content project-modal-content">
+                <div class="modal-header">
+                    <h3 id="demo-title">Project Demo</h3>
+                    <button class="modal-close" onclick="closeProjectDemo()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="demo-container">
+                        <div class="demo-placeholder" id="demo-content">
+                            <div class="demo-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <p>Demo will be available once the project is deployed to a live server.</p>
+                            <p>Visit the GitHub repository to see the complete source code and documentation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="cta-section" style="margin-top: 4.25rem;">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Have a Project in Mind?</h2>
+                    <p>Let's collaborate and build something amazing with AI/ML</p>
+                    <div class="cta-buttons">
+                        <a href="#hire-modal" class="btn btn-primary" onclick="openHireModal()">
+                            <i class="fas fa-rocket"></i>
+                            Start a Project
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hire Me Modal -->
+    <div class="modal" id="hire-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Let's Work Together!</h3>
+                <button class="modal-close" onclick="closeHireModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="hire-avatar">
+                    <div class="avatar-animation">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <p>Ready to bring AI/ML solutions to your project? Let's discuss how I can help you build intelligent systems that drive results.</p>
+                <div class="hire-actions">
+                    <a href="mailto:imtarunchaudharyy@gmail.com?subject=Hiring Inquiry - AI/ML Project&body=Hi Tarun,%0D%0A%0D%0AI'm interested in discussing a project opportunity with you.%0D%0A%0D%0AProject Details:%0D%0A-%0D%0A-%0D%0A%0D%0ABest regards," class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-form"></i>
+                        Contact Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Tarun Kumar. All rights reserved.</p>
+                    <p>AI/ML Engineer | Mathura, India</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:imtarunchaudharyy@gmail.com">imtarunchaudharyy@gmail.com</a>
+                    <span>|</span>
+                    <a href="tel:+919027806285">+91-9027806285</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
