@@ -269,6 +269,14 @@
             font-size: 1.4rem;
         }
 
+        .form-success small {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
         .contact-form .btn {
             background: linear-gradient(135deg, #ffff00, #ffd700);
             color: #000;
@@ -471,7 +479,8 @@
                             </form>
                             <div class="form-success" id="form-success">
                                 <i class="fas fa-check-circle"></i>
-                                <p>Message sent successfully!</p>
+                                <p>Message sent successfully via EmailJS!</p>
+                                <small>I'll respond within 24 hours. Thank you for reaching out!</small>
                             </div>
                         </div>
                     </div>
@@ -695,6 +704,14 @@
     </footer>
 
     <script src="assets/script.js"></script>
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init('89ZnGV3E90eIXmTHR');
+            console.log('EmailJS initialized successfully with public key: 89ZnGV3E90eIXmTHR');
+        })();
+    </script>
     <script>
         // Enhanced contact form functionality with improved auto-fill behavior
         function validateEmail(email) {
@@ -705,7 +722,12 @@
         function showError(fieldId, message) {
             const errorElement = document.getElementById(fieldId + '-error');
             if (errorElement) {
-                errorElement.textContent = message;
+                // Check if message contains HTML (for fallback links)
+                if (message.includes('<a href=')) {
+                    errorElement.innerHTML = message;
+                } else {
+                    errorElement.textContent = message;
+                }
                 errorElement.classList.add('show');
 
                 // Add visual feedback to the input field
@@ -837,42 +859,93 @@
             submitBtn.disabled = true;
 
             // Validate form
-            setTimeout(() => {
-                if (!validateForm()) {
-                    // Reset button state
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    return false;
-                }
-
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    category: document.getElementById('subject-category').value,
-                    subject: document.getElementById('subject').value.trim(),
-                    message: document.getElementById('message').value.trim()
-                };
-
-                // Create mailto link with form data
-                const emailBody = `Name: ${formData.name}%0D%0A` +
-                                `Email: ${formData.email}%0D%0A` +
-                                `Category: ${formData.category || 'Not specified'}%0D%0A%0D%0A` +
-                                `Message:%0D%0A${formData.message}`;
-
-                const mailtoLink = `mailto:imtarunchaudharyy@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
-
-                // Open email client
-                window.location.href = mailtoLink;
-
-                // Reset button and show success message
+            if (!validateForm()) {
+                // Reset button state
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
+                return false;
+            }
 
-                setTimeout(() => {
-                    showSuccessMessage();
-                }, 300);
-            }, 300);
+            // Auto-fill subject from category if needed
+            autoFillSubjectFromCategory();
+
+            // Get form data for EmailJS
+            const templateParams = {
+                from_name: document.getElementById('name').value.trim(),
+                from_email: document.getElementById('email').value.trim(),
+                subject: document.getElementById('subject').value.trim(),
+                category: document.getElementById('subject-category').value || 'Not specified',
+                message: document.getElementById('message').value.trim(),
+                to_email: 'imtarunchaudharyy@gmail.com'
+            };
+
+            // Check if EmailJS is available
+            if (typeof emailjs === 'undefined') {
+                console.error('EmailJS library not loaded');
+                // Fallback to mailto
+                const emailBody = `Name: ${templateParams.from_name}%0D%0A` +
+                                `Email: ${templateParams.from_email}%0D%0A` +
+                                `Category: ${templateParams.category}%0D%0A%0D%0A` +
+                                `Message:%0D%0A${templateParams.message}`;
+                const mailtoLink = `mailto:imtarunchaudharyy@gmail.com?subject=${encodeURIComponent(templateParams.subject)}&body=${emailBody}`;
+                window.open(mailtoLink, '_blank');
+
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                showSuccessMessage();
+                return false;
+            }
+
+            // Send email using EmailJS
+            emailjs.send('service_i03b70k', 'template_o4gjg92', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Reset button state
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+
+                    // Show success message
+                    setTimeout(() => {
+                        showSuccessMessage();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 800);
+
+                }, function(error) {
+                    console.log('FAILED...', error);
+
+                    // Show error state
+                    submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed';
+                    submitBtn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+
+                    // Create fallback mailto link
+                    const formData = {
+                        name: templateParams.from_name,
+                        email: templateParams.from_email,
+                        subject: templateParams.subject,
+                        category: templateParams.category,
+                        message: templateParams.message
+                    };
+
+                    const emailBody = `Name: ${formData.name}%0D%0A` +
+                                    `Email: ${formData.email}%0D%0A` +
+                                    `Category: ${formData.category}%0D%0A%0D%0A` +
+                                    `Message:%0D%0A${formData.message}`;
+
+                    const mailtoLink = `mailto:imtarunchaudharyy@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
+
+                    // Show error message with fallback option
+                    const errorMsg = `EmailJS failed. <a href="${mailtoLink}" style="color: #ffff00; text-decoration: underline;">Click here to open your email client</a> as fallback.`;
+                    showError('message', errorMsg);
+
+                    // Reset button after 5 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                        hideError('message');
+                    }, 5000);
+                });
 
             return false;
         }
