@@ -844,42 +844,58 @@
             submitBtn.disabled = true;
 
             // Validate form
-            setTimeout(() => {
-                if (!validateForm()) {
-                    // Reset button state
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    return false;
-                }
-
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    category: document.getElementById('subject-category').value,
-                    subject: document.getElementById('subject').value.trim(),
-                    message: document.getElementById('message').value.trim()
-                };
-
-                // Create mailto link with form data
-                const emailBody = `Name: ${formData.name}%0D%0A` +
-                                `Email: ${formData.email}%0D%0A` +
-                                `Category: ${formData.category || 'Not specified'}%0D%0A%0D%0A` +
-                                `Message:%0D%0A${formData.message}`;
-
-                const mailtoLink = `mailto:imtarunchaudharyy@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
-
-                // Open email client
-                window.location.href = mailtoLink;
-
-                // Reset button and show success message
+            if (!validateForm()) {
+                // Reset button state
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
+                return false;
+            }
 
-                setTimeout(() => {
-                    showSuccessMessage();
-                }, 300);
-            }, 300);
+            // Auto-fill subject from category if needed
+            autoFillSubjectFromCategory();
+
+            // Get form data for EmailJS
+            const templateParams = {
+                from_name: document.getElementById('name').value.trim(),
+                from_email: document.getElementById('email').value.trim(),
+                subject: document.getElementById('subject').value.trim(),
+                category: document.getElementById('subject-category').value || 'Not specified',
+                message: document.getElementById('message').value.trim(),
+                to_email: 'imtarunchaudharyy@gmail.com'
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_i03b70k', 'template_o4gjg92', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Reset button state
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+
+                    // Show success message
+                    setTimeout(() => {
+                        showSuccessMessage();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 800);
+
+                }, function(error) {
+                    console.log('FAILED...', error);
+
+                    // Show error state
+                    submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed';
+                    submitBtn.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+
+                    // Show error message
+                    showError('message', 'Failed to send message. Please try again or contact directly via email.');
+
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                });
 
             return false;
         }
