@@ -879,6 +879,23 @@
                 to_email: 'imtarunchaudharyy@gmail.com'
             };
 
+            // Check if EmailJS is available
+            if (typeof emailjs === 'undefined') {
+                console.error('EmailJS library not loaded');
+                // Fallback to mailto
+                const emailBody = `Name: ${templateParams.from_name}%0D%0A` +
+                                `Email: ${templateParams.from_email}%0D%0A` +
+                                `Category: ${templateParams.category}%0D%0A%0D%0A` +
+                                `Message:%0D%0A${templateParams.message}`;
+                const mailtoLink = `mailto:imtarunchaudharyy@gmail.com?subject=${encodeURIComponent(templateParams.subject)}&body=${emailBody}`;
+                window.open(mailtoLink, '_blank');
+
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                showSuccessMessage();
+                return false;
+            }
+
             // Send email using EmailJS
             emailjs.send('service_i03b70k', 'template_o4gjg92', templateParams)
                 .then(function(response) {
